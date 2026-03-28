@@ -1,137 +1,184 @@
-<!-- PROJECT LOGO -->
-<center>
+# AGENTS.md - Agentic Coding Guidelines
 
-# AGENTS.md
+This document provides guidelines for agents working on this Electron + React + TypeScript project.
 
-This file contains project-specific guidelines for AI coding agents (like Cursor, GitHub Copilot, etc.) working on this repository.
+## Project Overview
 
----
+This is an Electron application built with electron-vite, React 19, and TypeScript. It uses a multi-process architecture:
 
-## 🛠️ Build & Run Commands
+- **Main process** (`src/main/`): Electron main process handling windows, IPC, system integration
+- **Preload** (`src/preload/`): Context bridge for secure renderer-main communication
+- **Renderer** (`src/renderer/src/`): React 19 frontend UI
 
-| Command              | Description                            |
-| -------------------- | -------------------------------------- |
-| `npm start`          | Start Electron app in development mode |
-| `npm run lint`       | Run ESLint to check code quality       |
-| `npm run lint:fix`   | Auto-fix ESLint issues                 |
-| `npm run format`     | Check Prettier formatting              |
-| `npm run format:fix` | Auto-fix code formatting               |
+## Build Commands
 
-**Running a single test**: Not configured yet. Test framework should be added when needed.
+### Development
 
----
+```bash
+npm run dev          # Start electron-vite dev server with hot reload
+npm run start        # Preview production build locally
+```
 
-## 📐 Code Style Guidelines
+### Building
 
-### File Structure & Naming
+```bash
+npm run build        # TypeScript check + electron-vite production build
+npm run build:win    # Build Windows executable (.exe)
+npm run build:mac    # Build macOS app
+npm run build:linux  # Build Linux app
+npm run build:unpack # Build unpacked directory (for debugging)
+```
 
-- **Files**: Use `camelCase` (e.g., `renderer.js`, `config.js`)
-- **Components**: Use `PascalCase` (e.g., `MyComponent.jsx`)
-- **JavaScript/ESM**: Files use `.js` extension, default to ESM modules
-- **CommonJS exception**: `main.js` uses `require()` for Electron API
+### Code Quality
 
-### Module System
+```bash
+npm run format       # Format all files with Prettier
+npm run lint         # Run ESLint on all files
+npm run typecheck    # Run TypeScript type checking
+npm run typecheck:node   # Type check main + preload (tsconfig.node.json)
+npm run typecheck:web    # Type check renderer (tsconfig.web.json)
+```
 
-| File           | Syntax            | Reason                                      |
-| -------------- | ----------------- | ------------------------------------------- |
-| `main.js`      | `require()`       | Electron main process requires CommonJS     |
-| `renderer.js`  | `import`/`export` | React renderer uses ESM                     |
-| `*.js` (other) | `import`/`export` | Project default is ESM (`"type": "module"`) |
+### Running a Single Test
 
-### React Guidelines
+**Note:** This project does not currently have tests configured.
 
-- Use functional components with hooks
-- Import React: `import React from 'react'`
-- Import hooks: `import { useState, useEffect } from 'react'`
-- Component files: `PascalCase.js` or `PascalCase.jsx`
-- Use React DevTools for debugging
+## Code Style Guidelines
 
 ### Formatting (Prettier)
 
-- **Semi-colons**: `true` (always use semicolons)
-- **Quotes**: `singleQuote` (use single quotes for strings)
-- **Indent**: 2 spaces, no tabs
-- **Line width**: 80 characters
-- **No trailing commas**: Not specified, defaults to none
+- **Quotes:** Single quotes only
+- **Semicolons:** No semicolons
+- **Print width:** 100 characters
+- **Trailing commas:** None
+- **Config:** `.prettierrc.yaml`
 
----
+### EditorConfig
 
-## 🐛 Error Handling
+- **Indent:** 2 spaces
+- **Line endings:** LF (Unix-style)
+- **Charset:** UTF-8
+- **Config:** `.editorconfig`
 
-- **Main process**: Wrap Electron API calls in try-catch
-- **Renderer process**: Use React error boundaries for UI errors
-- **Async operations**: Always handle promises with `.catch()` or try-catch
-- **User-facing errors**: Use native Electron dialogs or UI notifications
-- **Logging**: Use `console.error()` for errors, avoid `console.log()` in production
+### TypeScript
 
----
+- Strict mode enabled via `@electron-toolkit/tsconfig`
+- Use explicit return types for React components: `function App(): React.JSX.Element`
+- Use explicit types for function parameters when not obvious
+- Enable `composite: true` in tsconfig for project references
 
-## 🔒 Security
+### React/JSX
 
-- CSP headers in `index.html` restrict script sources to `'self'`
-- Never expose Node.js API directly to renderer process
-- Use `contextIsolation: true` for Electron window (already set by default in v41)
-- Validate all user input before processing
-- Use environment variables for sensitive data (create `.env` file, add to `.gitignore`)
+- Use JSX runtime: `react-jsx` (no need to import React in every file)
+- Prefer functional components with hooks over class components
+- Use explicit return type annotation: `function Component(): React.JSX.Element`
+- Components go in `src/renderer/src/components/` directory
 
----
+### Imports
 
-## 📦 Dependencies
+- Use path alias `@renderer/*` for renderer source imports
+- Group imports: external libs, then internal modules, then assets/styles
+- Example:
+  ```typescript
+  import { useState, useEffect } from 'react'
+  import { join } from 'path'
+  import icon from './assets/icon.png?asset'
+  import { myModule } from '@/utils/myModule'
+  ```
 
-| Type         | Package                         | Purpose               |
-| ------------ | ------------------------------- | --------------------- |
-| **Main**     | electron@41.1.0                 | Desktop app framework |
-| **Renderer** | react@19.2.4                    | UI library            |
-| **Dev**      | eslint@9.39.4                   | Code linting          |
-| **Dev**      | prettier@3.8.1                  | Code formatting       |
-| **Dev**      | @eslint/js, eslint-plugin-react | React linting rules   |
+### Naming Conventions
 
----
+- **Files:** PascalCase for components (`MyComponent.tsx`), camelCase for others (`utils.ts`)
+- **Components:** PascalCase (`function MyComponent()`)
+- **Variables/functions:** camelCase
+- **Constants:** SCREAMING_SNAKE_CASE
+- **Interfaces:** PascalCase, prefix with `I` optional (`interface UserProps`)
 
-## 🚀 Workflow for Adding Features
+### Error Handling
 
-1. **New feature**: Create branch from main, implement feature
-2. **Lint/format**: Run `npm run lint:fix && npm run format:fix` before committing
-3. **Testing**: Add tests when appropriate (recommend Jest + React Testing Library)
-4. **Electron-specific**: Main process changes in `main.js`, renderer changes in `renderer.js`
-5. **Package updates**: Update `package.json` with `npm install --save` or `--save-dev`
+- Always wrap contextBridge operations in try-catch
+- Log errors with `console.error`
+- Use TypeScript types to catch errors at compile time
+- Example:
+  ```typescript
+  try {
+    contextBridge.exposeInMainWorld('api', api)
+  } catch (error) {
+    console.error(error)
+  }
+  ```
 
----
+### Electron-Specific Guidelines
 
-## 📝 Notes for AI Agents
+#### Main Process
 
-- This project uses **flat ESLint config** (`.eslint.config.js`) - ESLint v9 format
-- Prettier config is at `.prettierrc` - keep rules consistent with existing config
-- `index.html` has CSP headers that restrict external scripts
-- No build step yet - files load directly (Webpack/Vite not configured)
-- Avoid adding new dev dependencies without justification
-- When adding tests, prefer Jest or Vitest (lightweight, good Electron support)
-- Electron version is pinned at 41.1.0 - check compatibility before updating
+- Use `electronApp.setAppUserModelId()` for Windows
+- Use `optimizer.watchWindowShortcuts()` for dev tools shortcut
+- Always handle `window-all-closed` and `activate` events for macOS
+- Use `is.dev` check for development vs production behavior
 
----
+#### Preload
 
-## 🐳 Common Tasks
+- Expose only necessary APIs via `contextBridge.exposeInMainWorld`
+- Never expose sensitive Node.js APIs directly to renderer
+- Use TypeScript declaration files (`.d.ts`) for window type augmentation
 
-### Add a new React component
+#### IPC Communication
 
-1. Create `src/components/ComponentName.jsx`
-2. Import `React` and hooks as needed
-3. Export component as default
-4. Add to renderer in `renderer.js`
+- Use `ipcMain`/`ipcRenderer` for main-renderer communication
+- Validate all IPC messages in main process
+- Consider using `invoke`/`handle` for request-response patterns
 
-### Add Electron functionality
+### Linting (ESLint)
 
-1. Modify `main.js` for window/process management
-2. Use `ipcMain`/`ipcRenderer` for main/renderer communication
-3. Keep Electron-specific code in main process only
+- Config: `eslint.config.mjs` using flat config
+- Uses `@electron-toolkit/eslint-config-ts` for TypeScript
+- Uses `eslint-plugin-react` and `eslint-plugin-react-hooks`
+- Uses `eslint-plugin-react-refresh` for Vite HMR compatibility
+- Run `npm run lint` before committing
 
-### Debugging
+## Key Dependencies
 
-- **Main process**: Check terminal for console output
-- **Renderer process**: Use Electron DevTools (Cmd+Alt+I on Mac, Ctrl+Shift+I on Windows)
-- Enable React DevTools extension for component inspection
+- **electron-vite**: Build tool integrating Vite with Electron
+- **@electron-toolkit/utils**: Electron utilities (`is.dev`, `electronApp`, `optimizer`)
+- **@electron-toolkit/preload**: Preload script helpers
+- **electron-builder**: Packaging for distribution
 
----
+## File Structure
 
-_Last updated: March 2026_
-_Project: automated-school-forms v1.0.0_
+```
+src/
+├── main/              # Main process (Node.js)
+│   └── index.ts       # Entry point, window creation
+├── preload/           # Preload scripts (runs in sandboxed renderer)
+│   ├── index.ts       # Context bridge setup
+│   └── index.d.ts     # TypeScript declarations for window
+└── renderer/
+    └── src/           # React frontend
+        ├── App.tsx    # Root component
+        ├── main.tsx   # React entry point
+        ├── components/
+        │   └── *.tsx  # React components
+        └── assets/    # Static assets (images, styles)
+```
+
+## Common Tasks
+
+### Adding a New Component
+
+1. Create `src/renderer/src/components/MyComponent.tsx`
+2. Use functional component with explicit return type
+3. Import and use in parent component
+
+### Adding IPC Communication
+
+1. Define API in `src/preload/index.ts` with contextBridge
+2. Add type declaration in `src/preload/index.d.ts`
+3. Handle in `src/main/index.ts` with ipcMain
+
+### Adding New Dependencies
+
+```bash
+npm install <package>    # Regular dependency
+npm install -D <package> # Dev dependency
+```
