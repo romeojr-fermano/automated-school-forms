@@ -1,38 +1,15 @@
 {
-  "name": "automated-school-forms",
+  "name": "automated-school-forms-app",
   "version": "1.0.0",
-  "description": "",
-  "homepage": "https://github.com/romeojr-fermano/automated-school-forms#readme",
-  "bugs": {
-    "url": "https://github.com/romeojr-fermano/automated-school-forms/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/romeojr-fermano/automated-school-forms.git"
-  },
-  "license": "ISC",
-  "author": "Romeo Fermano Jr.",
-  "type": "module",
+  "description": "Hello World!",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "Romeo Fermano Jr.",
+  "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "electron": "41.1.0",
-    "eslint": "^9.39.4",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.5.2",
-    "prettier": "^3.8.1"
-  },
-  "dependencies": {
-    "react": "^19.2.4"
+    "electron": "41.1.0"
   }
 }
