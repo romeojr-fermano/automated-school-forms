@@ -12,13 +12,27 @@
   },
   "license": "ISC",
   "author": "Romeo Fermano Jr.",
-  "type": "commonjs",
+  "type": "module",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
   },
   "devDependencies": {
-    "electron": "41.1.0"
+    "@eslint/js": "^10.0.1",
+    "electron": "41.1.0",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "prettier": "^3.8.1"
+  },
+  "dependencies": {
+    "react": "^19.2.4"
   }
 }
