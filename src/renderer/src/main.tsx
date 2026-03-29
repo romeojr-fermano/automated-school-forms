@@ -1,11 +1,14 @@
 import './assets/main.css'
-
-import { StrictMode } from 'react'
+import './assets/shs-forms.css'
+import { AppProvider } from './context/AppContext'
 import { createRoot } from 'react-dom/client'
-import App from './App'
+import { StrictMode } from 'react'
+import App from '@renderer/App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <AppProvider>
+      <App />
+    </AppProvider>
   </StrictMode>
 )
