@@ -1,0 +1,2211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automated School Forms Generator 2025-2026 | Strengthened SHS Program</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+    :root {
+      --navy: #0A1628;
+      --navy-mid: #12233D;
+      --navy-light: #1E3A5F;
+      --gold: #F5C842;
+      --gold-light: #F7D46A;
+      --gold-dim: #C9A030;
+      --sky: #3B82C4;
+      --sky-light: #60A5FA;
+      --red-ph: #CE1126;
+      --blue-ph: #0038A8;
+      --sun-ph: #FCD116;
+      --white: #FFFFFF;
+      --off-white: #F8F7F2;
+      --gray-50: #F5F4EF;
+      --gray-100: #E8E6DE;
+      --gray-200: #D0CEC4;
+      --gray-400: #9C9A90;
+      --gray-600: #5E5C54;
+      --gray-800: #2C2B26;
+      --success: #16A34A;
+      --warning: #D97706;
+      --danger: #DC2626;
+      --border: rgba(255,255,255,0.12);
+      --border-light: rgba(0,0,0,0.1);
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
+      --font: 'IBM Plex Sans', sans-serif;
+      --font-serif: 'IBM Plex Serif', serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --radius: 8px;
+      --radius-lg: 14px;
+      --transition: all 0.2s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── HEADER ─────────────────────────────── */
+    .header {
+      background: var(--navy-mid);
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+    }
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .ph-flag {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .flag-stripe {
+      width: 28px;
+      height: 18px;
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .flag-stripe .top { background: var(--blue-ph); height: 50%; }
+    .flag-stripe .bot { background: var(--red-ph); height: 50%; }
+    .flag-triangle {
+      position: absolute;
+      left: 0; top: 0;
+      width: 0; height: 0;
+      border-style: solid;
+      border-width: 9px 0 9px 13px;
+      border-color: transparent transparent transparent white;
+    }
+    .deped-badge {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.05em;
+    }
+    .sy-badge {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .header-main {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(245,200,66,0.3);
+    }
+    .header-text h1 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .header-text p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 2px;
+    }
+    .header-right {
+      margin-left: auto;
+      display: flex; gap: 8px; align-items: center;
+    }
+    .btn-print {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 8px 18px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: var(--transition);
+    }
+    .btn-print:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: var(--transition);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.06); color: white; }
+
+    /* ── NAV TABS ──────────────────────────── */
+    .nav-tabs {
+      display: flex;
+      gap: 0;
+      background: var(--navy);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      overflow-x: auto;
+    }
+    .nav-tab {
+      padding: 12px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition);
+      user-select: none;
+    }
+    .nav-tab:hover { color: rgba(255,255,255,0.75); }
+    .nav-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ── LAYOUT ───────────────────────────── */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: calc(100vh - 130px);
+    }
+
+    /* ── SIDEBAR ──────────────────────────── */
+    .sidebar {
+      background: var(--navy-mid);
+      border-right: 1px solid var(--border);
+      padding: 20px 0;
+      overflow-y: auto;
+    }
+    .sidebar-section {
+      margin-bottom: 8px;
+    }
+    .sidebar-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      padding: 6px 18px 4px;
+    }
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 18px;
+      cursor: pointer;
+      transition: var(--transition);
+      border-left: 2px solid transparent;
+      position: relative;
+    }
+    .sidebar-item:hover { background: rgba(255,255,255,0.04); }
+    .sidebar-item.active {
+      background: rgba(245,200,66,0.08);
+      border-left-color: var(--gold);
+      color: var(--gold);
+    }
+    .sidebar-item .item-icon {
+      width: 28px; height: 28px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .sidebar-item.active .item-icon { background: rgba(245,200,66,0.15); }
+    .sidebar-item .item-text { flex: 1; }
+    .sidebar-item .item-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.3;
+    }
+    .sidebar-item.active .item-name { color: var(--gold); }
+    .sidebar-item .item-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+    }
+    .sidebar-item .item-badge {
+      font-size: 10px;
+      background: rgba(255,255,255,0.08);
+      padding: 2px 7px;
+      border-radius: 10px;
+      color: rgba(255,255,255,0.5);
+    }
+    .sidebar-item.active .item-badge {
+      background: rgba(245,200,66,0.2);
+      color: var(--gold);
+    }
+
+    /* ── CONTENT AREA ──────────────────────── */
+    .content {
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    /* ── PANELS ───────────────────────────── */
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ── SECTION HEADER ───────────────────── */
+    .section-header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 16px;
+    }
+    .section-title h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+    .section-title p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 3px;
+    }
+
+    /* ── FORM GRID ────────────────────────── */
+    .form-grid { display: grid; gap: 20px; }
+    .form-grid-2 { grid-template-columns: 1fr 1fr; }
+    .form-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .form-grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.span-2 { grid-column: span 2; }
+    .form-group.span-3 { grid-column: span 3; }
+    .form-group.span-4 { grid-column: span 4; }
+
+    .form-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .form-label span { color: var(--gold); margin-left: 2px; }
+
+    .form-input, .form-select, .form-textarea {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 9px 12px;
+      font-size: 14px;
+      color: var(--white);
+      font-family: var(--font);
+      width: 100%;
+      transition: var(--transition);
+      outline: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--gold);
+      background: rgba(245,200,66,0.06);
+      box-shadow: 0 0 0 3px rgba(245,200,66,0.1);
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.2); }
+    .form-select { cursor: pointer; }
+    .form-select option { background: var(--navy-mid); color: white; }
+    .form-textarea { resize: vertical; min-height: 80px; }
+
+    /* ── CARD ─────────────────────────────── */
+    .card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card-title-icon {
+      width: 22px; height: 22px;
+      background: rgba(245,200,66,0.15);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+    }
+
+    /* ── DATA TABLE ───────────────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .data-table th {
+      background: rgba(255,255,255,0.05);
+      padding: 9px 12px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.8);
+      vertical-align: middle;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: rgba(255,255,255,0.03); }
+    .data-table .grade-input {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 4px 8px;
+      color: white;
+      font-size: 13px;
+      width: 70px;
+      text-align: center;
+      font-family: var(--font-mono);
+      outline: none;
+      transition: var(--transition);
+    }
+    .data-table .grade-input:focus {
+      border-color: var(--gold);
+      background: rgba(245,200,66,0.07);
+    }
+
+    /* ── STATUS BADGE ─────────────────────── */
+    .badge {
+      display: inline-flex; align-items: center;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .badge-gold { background: rgba(245,200,66,0.15); color: var(--gold); }
+    .badge-blue { background: rgba(59,130,196,0.15); color: var(--sky-light); }
+    .badge-green { background: rgba(22,163,74,0.15); color: #4ADE80; }
+    .badge-red { background: rgba(220,38,38,0.15); color: #F87171; }
+    .badge-gray { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+
+    /* ── STAT CARDS ───────────────────────── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+    .stat-card.gold::before { background: var(--gold); }
+    .stat-card.blue::before { background: var(--sky); }
+    .stat-card.green::before { background: var(--success); }
+    .stat-card.red::before { background: var(--danger); }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 8px;
+    }
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      line-height: 1;
+      font-family: var(--font-mono);
+    }
+    .stat-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 4px;
+    }
+
+    /* ── SCHOOL FORM PREVIEW ──────────────── */
+    .form-preview {
+      background: white;
+      color: #111;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      font-family: 'Times New Roman', serif;
+      font-size: 10px;
+    }
+    .form-preview * { color: #111; }
+    .form-header-ph {
+      background: #0038A8;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+    }
+    .form-header-ph * { color: white !important; }
+    .form-header-ph .agency { font-size: 8px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8; }
+    .form-header-ph .school-name { font-size: 13px; font-weight: bold; margin: 2px 0; }
+    .form-header-ph .form-name { font-size: 10px; opacity: 0.9; }
+    .form-body { padding: 12px 16px; }
+    .form-section-title {
+      background: #0038A8;
+      color: white !important;
+      font-size: 9px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 3px 8px;
+      margin: 8px 0 4px;
+    }
+    .form-field-row {
+      display: flex; gap: 8px; margin-bottom: 3px;
+    }
+    .form-field {
+      flex: 1;
+      border-bottom: 1px solid #999;
+      padding: 1px 0;
+      font-size: 10px;
+      min-height: 16px;
+    }
+    .form-field-label {
+      font-size: 8px;
+      color: #666 !important;
+      font-family: Arial, sans-serif;
+      white-space: nowrap;
+    }
+
+    /* ── GRADE TABLE (Form 137/138) ─────────── */
+    .grade-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9px;
+      font-family: Arial, sans-serif;
+    }
+    .grade-table th, .grade-table td {
+      border: 0.5px solid #333;
+      padding: 2px 3px;
+      text-align: center;
+      color: #111 !important;
+    }
+    .grade-table th { background: #e8e8e8; font-weight: bold; }
+    .grade-table .subject-name { text-align: left; }
+
+    /* ── DIVIDER ──────────────────────────── */
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+    /* ── BUTTONS ──────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.8);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+    .btn-danger {
+      background: rgba(220,38,38,0.15);
+      color: #F87171;
+      border: 1px solid rgba(220,38,38,0.3);
+    }
+    .btn-danger:hover { background: rgba(220,38,38,0.25); }
+    .btn-sm { padding: 6px 12px; font-size: 12px; }
+
+    /* ── NOTIFICATION ─────────────────────── */
+    .notification {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+      box-shadow: var(--shadow);
+      z-index: 999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      max-width: 320px;
+    }
+    .notification.show { transform: translateY(0); opacity: 1; }
+    .notification .notif-icon { font-size: 18px; }
+    .notification .notif-text { font-size: 13px; color: rgba(255,255,255,0.9); }
+
+    /* ── INFO BOX ──────────────────────────── */
+    .info-box {
+      background: rgba(59,130,196,0.1);
+      border: 1px solid rgba(59,130,196,0.25);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .info-box strong { color: var(--sky-light); }
+
+    /* ── PROGRESS BAR ─────────────────────── */
+    .progress-wrap {
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+      height: 6px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--gold);
+      transition: width 0.6s ease;
+    }
+
+    /* ── STUDENT ROW ──────────────────────── */
+    .student-num {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      font-family: var(--font-mono);
+      width: 24px;
+    }
+
+    /* ── TABS INSIDE PANEL ─────────────────── */
+    .inner-tabs {
+      display: flex; gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+    .inner-tab {
+      padding: 9px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition);
+    }
+    .inner-tab:hover { color: rgba(255,255,255,0.7); }
+    .inner-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+    /* ── FORM 137 SPECIFIC ─────────────────── */
+    .transcript-header {
+      display: grid; grid-template-columns: 1fr 3fr 1fr;
+      gap: 8px; align-items: center;
+      padding: 8px 12px;
+      font-family: Arial, sans-serif;
+    }
+    .school-seal {
+      width: 54px; height: 54px;
+      background: radial-gradient(circle, #003494, #0038A8);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8px; color: white; text-align: center; line-height: 1.2;
+      border: 2px solid #FCD116;
+      font-family: Arial;
+    }
+
+    /* ── SCROLLBAR ────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+    /* ── RESPONSIVE ───────────────────────── */
+    @media (max-width: 900px) {
+      .main-layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .form-grid-2, .form-grid-3, .form-grid-4 { grid-template-columns: 1fr; }
+      .form-group.span-2, .form-group.span-3, .form-group.span-4 { grid-column: span 1; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media print {
+      .header, .nav-tabs, .sidebar, .section-header button,
+      .btn, .inner-tabs { display: none !important; }
+      .main-layout { grid-template-columns: 1fr; }
+      .content { padding: 0; }
+      .form-preview { box-shadow: none; }
+      body { background: white; color: black; }
+      .card { background: white; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div class="ph-flag">
+      <div class="flag-stripe">
+        <div class="top"></div>
+        <div class="bot"></div>
+        <div class="flag-triangle"></div>
+      </div>
+      Republic of the Philippines &nbsp;·&nbsp; Department of Education
+    </div>
+    <div class="deped-badge">DepEd Order No. 8, s. 2015 | RA 10533</div>
+    <div class="sy-badge">S.Y. 2025–2026</div>
+  </div>
+  <div class="header-main">
+    <div class="header-icon">📋</div>
+    <div class="header-text">
+      <h1>Automated School Forms Generator</h1>
+      <p>Strengthened Senior High School Program · 2025–2026</p>
+    </div>
+    <div class="header-right">
+      <button class="btn-outline" onclick="exportData()">💾 Export Data</button>
+      <button class="btn-print" onclick="window.print()">🖨️ Print Forms</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="switchMain('setup')">⚙️ School Setup</div>
+  <div class="nav-tab" onclick="switchMain('masterlist')">👥 Master List</div>
+  <div class="nav-tab" onclick="switchMain('grades')">📊 Grade Entry</div>
+  <div class="nav-tab" onclick="switchMain('sf1')">SF1 · Enrollment</div>
+  <div class="nav-tab" onclick="switchMain('sf2')">SF2 · Daily Attendance</div>
+  <div class="nav-tab" onclick="switchMain('sf9')">SF9 · Report Card</div>
+  <div class="nav-tab" onclick="switchMain('sf10')">SF10 · Learner Profile</div>
+  <div class="nav-tab" onclick="switchMain('f137')">Form 137</div>
+  <div class="nav-tab" onclick="switchMain('f138')">Form 138</div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="main-layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">School Info</div>
+      <div class="sidebar-item active" onclick="sidebarNav(this, 'school-info')">
+        <div class="item-icon">🏫</div>
+        <div class="item-text">
+          <div class="item-name">School Information</div>
+          <div class="item-sub">Name, Division, District</div>
+        </div>
+      </div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'section-info')">
+        <div class="item-icon">📚</div>
+        <div class="item-text">
+          <div class="item-name">Section & Schedule</div>
+          <div class="item-sub">Grade, Track, Strand</div>
+        </div>
+      </div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'teacher-info')">
+        <div class="item-icon">👨‍🏫</div>
+        <div class="item-text">
+          <div class="item-name">Teacher Information</div>
+          <div class="item-sub">Adviser, Subject Teachers</div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Students</div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'student-list')">
+        <div class="item-icon">📋</div>
+        <div class="item-text">
+          <div class="item-name">Class Master List</div>
+          <div class="item-sub">Enrolled students</div>
+        </div>
+        <div class="item-badge" id="student-count-badge">0</div>
+      </div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'attendance')">
+        <div class="item-icon">📅</div>
+        <div class="item-text">
+          <div class="item-name">Attendance Records</div>
+          <div class="item-sub">Monthly summary</div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Academic</div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'subjects')">
+        <div class="item-icon">📖</div>
+        <div class="item-text">
+          <div class="item-name">Subjects & Grades</div>
+          <div class="item-sub">Quarterly grades per subject</div>
+        </div>
+      </div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'honors')">
+        <div class="item-icon">🏆</div>
+        <div class="item-text">
+          <div class="item-name">Honors & Awards</div>
+          <div class="item-sub">With Highest/High/Special</div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">School Forms</div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'print-sf1')">
+        <div class="item-icon">📄</div>
+        <div class="item-text"><div class="item-name">SF1 – School Register</div></div>
+      </div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'print-sf2')">
+        <div class="item-icon">📄</div>
+        <div class="item-text"><div class="item-name">SF2 – Daily Attendance</div></div>
+      </div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'print-sf5')">
+        <div class="item-icon">📄</div>
+        <div class="item-text"><div class="item-name">SF5 – Report on Grades</div></div>
+      </div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'print-sf9')">
+        <div class="item-icon">📄</div>
+        <div class="item-text"><div class="item-name">SF9 – Report Card</div></div>
+      </div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'print-sf10')">
+        <div class="item-icon">📄</div>
+        <div class="item-text"><div class="item-name">SF10 – Learner Profile</div></div>
+      </div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'print-f137')">
+        <div class="item-icon">📄</div>
+        <div class="item-text"><div class="item-name">Form 137 – Transcript</div></div>
+      </div>
+      <div class="sidebar-item" onclick="sidebarNav(this, 'print-f138')">
+        <div class="item-icon">📄</div>
+        <div class="item-text"><div class="item-name">Form 138 – Report Card</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- ══ PANEL: SETUP ══════════════════════════════════ -->
+    <div class="panel active" id="panel-setup">
+      <div class="section-header">
+        <div class="section-title">
+          <h2>School Setup</h2>
+          <p>Configure school information, section details, and academic year settings</p>
+        </div>
+        <button class="btn btn-primary" onclick="saveSetup()">💾 Save Settings</button>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card gold">
+          <div class="stat-label">School Year</div>
+          <div class="stat-value" style="font-size:20px;" id="stat-sy">2025–2026</div>
+          <div class="stat-sub">Current Academic Year</div>
+        </div>
+        <div class="stat-card blue">
+          <div class="stat-label">Total Students</div>
+          <div class="stat-value" id="stat-students">0</div>
+          <div class="stat-sub">Enrolled this SY</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-label">Subjects</div>
+          <div class="stat-value" id="stat-subjects">8</div>
+          <div class="stat-sub">This semester</div>
+        </div>
+        <div class="stat-card red">
+          <div class="stat-label">School Form Status</div>
+          <div class="stat-value" style="font-size:16px; margin-top:4px;">Ready</div>
+          <div class="stat-sub">All forms available</div>
+        </div>
+      </div>
+
+      <!-- School Info Card -->
+      <div class="card" id="school-info">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-title-icon">🏫</div>
+            School Information
+          </div>
+          <span class="badge badge-gold">Required</span>
+        </div>
+        <div class="form-grid form-grid-2">
+          <div class="form-group span-2">
+            <label class="form-label">School Name <span>*</span></label>
+            <input class="form-input" id="school-name" placeholder="e.g. Hamtic National High School" value="">
+          </div>
+          <div class="form-group">
+            <label class="form-label">School ID (BEIS)</label>
+            <input class="form-input" id="school-id" placeholder="e.g. 303001" value="">
+          </div>
+          <div class="form-group">
+            <label class="form-label">School Year <span>*</span></label>
+            <select class="form-select" id="school-year">
+              <option value="2025-2026" selected>2025–2026</option>
+              <option value="2024-2025">2024–2025</option>
+              <option value="2026-2027">2026–2027</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Region</label>
+            <select class="form-select" id="region">
+              <option>Region VI – Western Visayas</option>
+              <option>Region I – Ilocos</option>
+              <option>Region II – Cagayan Valley</option>
+              <option>Region III – Central Luzon</option>
+              <option>NCR – National Capital Region</option>
+              <option>Region IV-A – CALABARZON</option>
+              <option>Region VII – Central Visayas</option>
+              <option>Region VIII – Eastern Visayas</option>
+              <option>Region X – Northern Mindanao</option>
+              <option>Region XI – Davao</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Division</label>
+            <input class="form-input" id="division" placeholder="e.g. Division of Antique" value="">
+          </div>
+          <div class="form-group">
+            <label class="form-label">District</label>
+            <input class="form-input" id="district" placeholder="e.g. Hamtic District" value="">
+          </div>
+          <div class="form-group span-2">
+            <label class="form-label">School Address</label>
+            <input class="form-input" id="school-address" placeholder="e.g. Hamtic, Antique, Western Visayas" value="">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Info Card -->
+      <div class="card" id="section-info">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-title-icon">📚</div>
+            Section & Academic Settings
+          </div>
+        </div>
+        <div class="form-grid form-grid-3">
+          <div class="form-group">
+            <label class="form-label">Grade Level <span>*</span></label>
+            <select class="form-select" id="grade-level" onchange="updateStrand()">
+              <option value="11">Grade 11</option>
+              <option value="12">Grade 12</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Semester <span>*</span></label>
+            <select class="form-select" id="semester">
+              <option value="1">1st Semester</option>
+              <option value="2">2nd Semester</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Section Name</label>
+            <input class="form-input" id="section-name" placeholder="e.g. Sampaguita" value="">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Track <span>*</span></label>
+            <select class="form-select" id="track" onchange="updateStrand()">
+              <option value="Academic">Academic</option>
+              <option value="TVL">Technical-Vocational-Livelihood (TVL)</option>
+              <option value="Sports">Sports</option>
+              <option value="Arts">Arts and Design</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Strand <span>*</span></label>
+            <select class="form-select" id="strand">
+              <option>ABM – Accountancy, Business & Management</option>
+              <option>HUMSS – Humanities & Social Sciences</option>
+              <option>STEM – Science, Technology, Engineering & Math</option>
+              <option>GAS – General Academic Strand</option>
+              <option>TVL – Home Economics</option>
+              <option>TVL – Information & Communication Technology</option>
+              <option>TVL – Industrial Arts</option>
+              <option>TVL – Agri-Fishery Arts</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Room Number</label>
+            <input class="form-input" id="room-no" placeholder="e.g. Room 12" value="">
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher Info Card -->
+      <div class="card" id="teacher-info">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-title-icon">👨‍🏫</div>
+            Teacher Information
+          </div>
+        </div>
+        <div class="form-grid form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Class Adviser <span>*</span></label>
+            <input class="form-input" id="adviser" placeholder="SURNAME, First Name M.I." value="">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Adviser Employee No.</label>
+            <input class="form-input" id="adviser-empno" placeholder="e.g. EMP-001" value="">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Principal Name</label>
+            <input class="form-input" id="principal" placeholder="SURNAME, First Name M.I." value="">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Principal Employee No.</label>
+            <input class="form-input" id="principal-empno" placeholder="e.g. EMP-001" value="">
+          </div>
+        </div>
+      </div>
+
+      <!-- Subjects Card -->
+      <div class="card" id="subjects">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-title-icon">📖</div>
+            Subjects for this Section
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="addSubject()">+ Add Subject</button>
+        </div>
+        <div class="info-box">
+          <strong>SHS Curriculum Note:</strong> For Grades 11–12, subjects are categorized into Core, Applied/Specialized, and Track-specific subjects. Default subjects are pre-loaded based on Grade & Track selection.
+        </div>
+        <table class="data-table" id="subjects-table">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Subject Name</th>
+            <th>Category</th>
+            <th>Units</th>
+            <th>Subject Teacher</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody id="subjects-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: MASTER LIST ════════════════════════════ -->
+    <div class="panel" id="panel-masterlist">
+      <div class="section-header">
+        <div class="section-title">
+          <h2>Class Master List</h2>
+          <p>Manage enrolled students for this section</p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-secondary btn-sm" onclick="importStudents()">📤 Bulk Import</button>
+          <button class="btn btn-primary" onclick="addStudent()">+ Add Student</button>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>Learner Reference Number (LRN):</strong> A 12-digit unique identifier assigned by DepEd to each learner. Required for all school forms. Format: 123456789012
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-title-icon">👥</div>
+            Enrolled Students <span class="badge badge-gold" id="student-count">0 students</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input class="form-input" id="search-student" placeholder="Search student..." style="width:200px;padding:6px 12px;font-size:12px;" oninput="filterStudents()">
+          </div>
+        </div>
+        <table class="data-table" id="students-table">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>LRN</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>M.I.</th>
+            <th>Sex</th>
+            <th>Birthdate</th>
+            <th>Age</th>
+            <th>Mother Tongue</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody id="students-tbody">
+          <tr id="no-students-row">
+            <td colspan="11" style="text-align:center;color:rgba(255,255,255,0.25);padding:32px;font-size:13px;">
+              No students enrolled yet. Click <strong style="color:rgba(255,255,255,0.5);">+ Add Student</strong> to begin.
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: GRADES ════════════════════════════════ -->
+    <div class="panel" id="panel-grades">
+      <div class="section-header">
+        <div class="section-title">
+          <h2>Grade Entry</h2>
+          <p>Enter quarterly grades per subject per student</p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <select class="form-select" id="grade-quarter" style="width:160px;" onchange="renderGradeTable()">
+            <option value="q1">1st Quarter</option>
+            <option value="q2">2nd Quarter</option>
+            <option value="q3">3rd Quarter</option>
+            <option value="q4">4th Quarter</option>
+          </select>
+          <button class="btn btn-primary" onclick="computeAverages()">⚡ Compute Averages</button>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>Grading System (DepEd Order No. 8, s. 2015):</strong> Grades are expressed as whole numbers from 60–100. The passing grade is 75. Final Grade is the average of quarterly grades.
+      </div>
+
+      <div class="card" id="grade-entry-card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-title-icon">📊</div>
+            <span id="grade-table-title">1st Quarter Grades</span>
+          </div>
+          <span class="badge badge-blue" id="grade-status">Not yet computed</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="data-table" id="grade-table">
+            <thead id="grade-thead"></thead>
+            <tbody id="grade-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: SF1 ════════════════════════════════════ -->
+    <div class="panel" id="panel-sf1">
+      <div class="section-header">
+        <div class="section-title">
+          <h2>School Form 1 (SF1)</h2>
+          <p>School Register — Official record of enrolled learners</p>
+        </div>
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Print SF1</button>
+      </div>
+      <div class="form-preview" id="sf1-preview">
+        <div class="form-header-ph">
+          <div class="agency">Republic of the Philippines · Department of Education</div>
+          <div class="school-name" id="sf1-school-name">School Name</div>
+          <div class="form-name">SCHOOL FORM 1 (SF1) – School Register</div>
+          <div style="font-size:8px;opacity:0.8;margin-top:2px;">S.Y. <span id="sf1-sy">2025–2026</span> · Grade <span id="sf1-grade">11</span> · Section: <span id="sf1-section">__________</span></div>
+        </div>
+        <div class="form-body">
+          <div class="form-section-title">LEARNER INFORMATION</div>
+          <table style="width:100%;border-collapse:collapse;font-size:9px;">
+            <thead>
+            <tr style="background:#e8e8e8;">
+              <th style="border:0.5px solid #888;padding:3px;width:24px;">#</th>
+              <th style="border:0.5px solid #888;padding:3px;width:110px;">LRN</th>
+              <th style="border:0.5px solid #888;padding:3px;">LAST NAME</th>
+              <th style="border:0.5px solid #888;padding:3px;">FIRST NAME</th>
+              <th style="border:0.5px solid #888;padding:3px;width:24px;">M.I.</th>
+              <th style="border:0.5px solid #888;padding:3px;width:26px;">SEX</th>
+              <th style="border:0.5px solid #888;padding:3px;width:58px;">BIRTHDATE</th>
+              <th style="border:0.5px solid #888;padding:3px;width:22px;">AGE</th>
+              <th style="border:0.5px solid #888;padding:3px;">MOTHER TONGUE</th>
+            </tr>
+            </thead>
+            <tbody id="sf1-tbody">
+            <tr>
+              <td colspan="9" style="text-align:center;padding:12px;color:#666;font-size:9px;">No students enrolled. Go to Master List to add students.</td>
+            </tr>
+            </tbody>
+          </table>
+          <div style="display:flex;gap:24px;margin-top:12px;font-size:9px;font-family:Arial;">
+            <div>
+              <strong>Prepared by:</strong><br>
+              <div style="border-bottom:0.5px solid #999;width:200px;margin-top:16px;"></div>
+              <span id="sf1-adviser">Class Adviser</span><br>
+              Class Adviser
+            </div>
+            <div>
+              <strong>Certified Correct:</strong><br>
+              <div style="border-bottom:0.5px solid #999;width:200px;margin-top:16px;"></div>
+              <span id="sf1-principal">School Principal</span><br>
+              School Principal
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: SF2 ════════════════════════════════════ -->
+    <div class="panel" id="panel-sf2">
+      <div class="section-header">
+        <div class="section-title">
+          <h2>School Form 2 (SF2)</h2>
+          <p>Daily Attendance Register — Monthly attendance record</p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <select class="form-select" id="sf2-month" style="width:160px;">
+            <option>June</option><option>July</option><option>August</option>
+            <option>September</option><option>October</option><option>November</option>
+            <option>December</option><option>January</option><option>February</option>
+            <option>March</option><option>April</option>
+          </select>
+          <button class="btn btn-primary" onclick="window.print()">🖨️ Print SF2</button>
+        </div>
+      </div>
+      <div class="form-preview" id="sf2-preview">
+        <div class="form-header-ph">
+          <div class="agency">Republic of the Philippines · Department of Education</div>
+          <div class="school-name" id="sf2-school-name">School Name</div>
+          <div class="form-name">SCHOOL FORM 2 (SF2) – Daily Attendance Register</div>
+          <div style="font-size:8px;opacity:0.8;margin-top:2px;">Month: <span id="sf2-month-display">June</span> · S.Y. <span id="sf2-sy">2025–2026</span> · Grade <span id="sf2-grade">11</span></div>
+        </div>
+        <div class="form-body" style="font-size:8px;">
+          <table style="width:100%;border-collapse:collapse;font-size:8px;">
+            <thead>
+            <tr style="background:#e8e8e8;">
+              <th style="border:0.5px solid #888;padding:2px;width:20px;">#</th>
+              <th style="border:0.5px solid #888;padding:2px;width:90px;">NAME</th>
+              <th style="border:0.5px solid #888;padding:2px;" colspan="5">WEEK 1</th>
+              <th style="border:0.5px solid #888;padding:2px;" colspan="5">WEEK 2</th>
+              <th style="border:0.5px solid #888;padding:2px;" colspan="5">WEEK 3</th>
+              <th style="border:0.5px solid #888;padding:2px;" colspan="5">WEEK 4</th>
+              <th style="border:0.5px solid #888;padding:2px;">TOTAL DAYS</th>
+              <th style="border:0.5px solid #888;padding:2px;">ABSENT</th>
+            </tr>
+            <tr style="background:#f0f0f0;">
+              <th style="border:0.5px solid #888;padding:1px;"></th>
+              <th style="border:0.5px solid #888;padding:1px;"></th>
+              <th style="border:0.5px solid #888;padding:1px;">M</th><th style="border:0.5px solid #888;padding:1px;">T</th><th style="border:0.5px solid #888;padding:1px;">W</th><th style="border:0.5px solid #888;padding:1px;">TH</th><th style="border:0.5px solid #888;padding:1px;">F</th>
+              <th style="border:0.5px solid #888;padding:1px;">M</th><th style="border:0.5px solid #888;padding:1px;">T</th><th style="border:0.5px solid #888;padding:1px;">W</th><th style="border:0.5px solid #888;padding:1px;">TH</th><th style="border:0.5px solid #888;padding:1px;">F</th>
+              <th style="border:0.5px solid #888;padding:1px;">M</th><th style="border:0.5px solid #888;padding:1px;">T</th><th style="border:0.5px solid #888;padding:1px;">W</th><th style="border:0.5px solid #888;padding:1px;">TH</th><th style="border:0.5px solid #888;padding:1px;">F</th>
+              <th style="border:0.5px solid #888;padding:1px;">M</th><th style="border:0.5px solid #888;padding:1px;">T</th><th style="border:0.5px solid #888;padding:1px;">W</th><th style="border:0.5px solid #888;padding:1px;">TH</th><th style="border:0.5px solid #888;padding:1px;">F</th>
+              <th style="border:0.5px solid #888;padding:1px;"></th>
+              <th style="border:0.5px solid #888;padding:1px;"></th>
+            </tr>
+            </thead>
+            <tbody id="sf2-tbody">
+            <tr><td colspan="24" style="text-align:center;padding:12px;color:#666;">Add students to generate attendance form</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: SF9 ════════════════════════════════════ -->
+    <div class="panel" id="panel-sf9">
+      <div class="section-header">
+        <div class="section-title">
+          <h2>School Form 9 (SF9)</h2>
+          <p>Learner's Progress Report Card — End-of-Quarter Report</p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <select class="form-select" id="sf9-student" style="width:220px;" onchange="renderSF9()">
+            <option value="">Select Student...</option>
+          </select>
+          <button class="btn btn-primary" onclick="window.print()">🖨️ Print</button>
+        </div>
+      </div>
+      <div id="sf9-container">
+        <div class="info-box">Select a student above to preview their Report Card (SF9).</div>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: SF10 ═══════════════════════════════════ -->
+    <div class="panel" id="panel-sf10">
+      <div class="section-header">
+        <div class="section-title">
+          <h2>School Form 10 (SF10)</h2>
+          <p>Learner's Permanent Academic Record — Permanent record of learner</p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <select class="form-select" id="sf10-student" style="width:220px;" onchange="renderSF10()">
+            <option value="">Select Student...</option>
+          </select>
+          <button class="btn btn-primary" onclick="window.print()">🖨️ Print</button>
+        </div>
+      </div>
+      <div id="sf10-container">
+        <div class="info-box">Select a student above to preview their Permanent Record (SF10).</div>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: FORM 137 ═══════════════════════════════ -->
+    <div class="panel" id="panel-f137">
+      <div class="section-header">
+        <div class="section-title">
+          <h2>Form 137 – Permanent Record / Transcript of Records</h2>
+          <p>Official academic transcript for SHS graduates</p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <select class="form-select" id="f137-student" style="width:220px;" onchange="renderF137()">
+            <option value="">Select Student...</option>
+          </select>
+          <button class="btn btn-primary" onclick="window.print()">🖨️ Print</button>
+        </div>
+      </div>
+      <div id="f137-container">
+        <div class="info-box">Select a student above to generate their Form 137 (Permanent Record / Transcript of Records).</div>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: FORM 138 ═══════════════════════════════ -->
+    <div class="panel" id="panel-f138">
+      <div class="section-header">
+        <div class="section-title">
+          <h2>Form 138 – Report Card</h2>
+          <p>End-of-year report card with semestral grades</p>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <select class="form-select" id="f138-student" style="width:220px;" onchange="renderF138()">
+            <option value="">Select Student...</option>
+          </select>
+          <button class="btn btn-primary" onclick="window.print()">🖨️ Print</button>
+        </div>
+      </div>
+      <div id="f138-container">
+        <div class="info-box">Select a student above to generate their Form 138 (Report Card).</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main-layout -->
+
+<!-- NOTIFICATION -->
+<div class="notification" id="notification">
+  <span class="notif-icon" id="notif-icon">✅</span>
+  <span class="notif-text" id="notif-text">Settings saved successfully!</span>
+</div>
+
+<!-- ADD STUDENT MODAL OVERLAY -->
+<div id="student-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center;">
+  <div style="background:var(--navy-mid);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;width:600px;max-width:95vw;max-height:90vh;overflow-y:auto;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+      <h3 style="font-size:16px;font-weight:700;">Add Student</h3>
+      <button onclick="closeModal()" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:20px;cursor:pointer;">✕</button>
+    </div>
+    <div class="form-grid form-grid-2">
+      <div class="form-group span-2">
+        <label class="form-label">LRN (Learner Reference Number) <span>*</span></label>
+        <input class="form-input" id="m-lrn" placeholder="12-digit LRN e.g. 123456789012" maxlength="12">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Last Name <span>*</span></label>
+        <input class="form-input" id="m-last" placeholder="SURNAME">
+      </div>
+      <div class="form-group">
+        <label class="form-label">First Name <span>*</span></label>
+        <input class="form-input" id="m-first" placeholder="Given Name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Middle Name</label>
+        <input class="form-input" id="m-middle" placeholder="Middle Name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Extension (Jr/Sr/III)</label>
+        <input class="form-input" id="m-ext" placeholder="Jr., Sr., III">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Sex <span>*</span></label>
+        <select class="form-select" id="m-sex">
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Birthdate <span>*</span></label>
+        <input class="form-input" id="m-bday" type="date">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mother Tongue</label>
+        <select class="form-select" id="m-tongue">
+          <option>Filipino</option><option>Kinaray-a</option><option>Hiligaynon</option>
+          <option>Cebuano</option><option>Ilocano</option><option>Waray</option>
+          <option>Kapampangan</option><option>Bicol</option><option>Pangasinan</option>
+          <option>English</option><option>Others</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Religion</label>
+        <input class="form-input" id="m-religion" placeholder="e.g. Roman Catholic">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Status</label>
+        <select class="form-select" id="m-status">
+          <option value="Enrolled">Enrolled</option>
+          <option value="Transferred">Transferred</option>
+          <option value="Dropped">Dropped</option>
+        </select>
+      </div>
+      <div class="form-group span-2">
+        <label class="form-label">Address</label>
+        <input class="form-input" id="m-address" placeholder="Full address">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Guardian Name</label>
+        <input class="form-input" id="m-guardian" placeholder="Parent/Guardian Full Name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Contact Number</label>
+        <input class="form-input" id="m-contact" placeholder="e.g. 09123456789">
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px;">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveStudent()">Save Student</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ─── STATE ──────────────────────────────────────────────────────
+  const state = {
+    school: { name:'', id:'', year:'2025-2026', region:'Region VI – Western Visayas', division:'', district:'', address:'' },
+    section: { grade:'11', semester:'1', name:'', track:'Academic', strand:'ABM – Accountancy, Business & Management', room:'' },
+    teacher: { adviser:'', adviserEmp:'', principal:'', principalEmp:'' },
+    students: [],
+    subjects: [],
+    grades: {},  // { studentIdx: { subjectIdx: { q1, q2, q3, q4 } } }
+    editingStudent: -1
+  };
+
+  const DEFAULT_SUBJECTS = {
+    'Academic-11': [
+      { name:'Oral Communication', cat:'Core', units:80, teacher:'' },
+      { name:'Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino', cat:'Core', units:80, teacher:'' },
+      { name:'21st Century Literature from the Philippines and the World', cat:'Core', units:80, teacher:'' },
+      { name:'Mathematics in the Modern World', cat:'Core', units:80, teacher:'' },
+      { name:'Earth and Life Science', cat:'Core', units:80, teacher:'' },
+      { name:'Personal Development', cat:'Core', units:80, teacher:'' },
+      { name:'Understanding Culture, Society and Politics', cat:'Core', units:80, teacher:'' },
+      { name:'Introduction to the Philosophy of the Human Person', cat:'Core', units:80, teacher:'' },
+    ],
+    'Academic-12': [
+      { name:'Reading and Writing', cat:'Core', units:80, teacher:'' },
+      { name:'Pagbasa at Pagsusuri ng Iba\'t ibang Teksto Tungo sa Pananaliksik', cat:'Core', units:80, teacher:'' },
+      { name:'Practical Research 1', cat:'Core', units:80, teacher:'' },
+      { name:'Contemporary Philippine Arts from the Regions', cat:'Core', units:80, teacher:'' },
+      { name:'Media and Information Literacy', cat:'Core', units:80, teacher:'' },
+      { name:'Physical Education and Health 3', cat:'Core', units:80, teacher:'' },
+      { name:'Physical Education and Health 4', cat:'Core', units:80, teacher:'' },
+      { name:'Inquiries, Investigations, and Immersion', cat:'Core', units:80, teacher:'' },
+    ]
+  };
+
+  // ─── INITIALIZATION ──────────────────────────────────────────────
+  window.onload = () => {
+    loadSaved();
+    renderSubjects();
+    updateStats();
+  };
+
+  function loadSaved() {
+    const saved = localStorage.getItem('shs_sf_data');
+    if (saved) {
+      try {
+        const d = JSON.parse(saved);
+        Object.assign(state, d);
+        populateForm();
+        renderStudentsTable();
+        renderSubjects();
+        updateStats();
+      } catch(e) {}
+    } else {
+      const gr = document.getElementById('grade-level')?.value || '11';
+      const tr = document.getElementById('track')?.value || 'Academic';
+      state.subjects = JSON.parse(JSON.stringify(DEFAULT_SUBJECTS[`${tr}-${gr}`] || DEFAULT_SUBJECTS['Academic-11']));
+      renderSubjects();
+    }
+  }
+
+  function populateForm() {
+    const s = state.school;
+    setVal('school-name', s.name); setVal('school-id', s.id);
+    setVal('school-year', s.year); setVal('region', s.region);
+    setVal('division', s.division); setVal('district', s.district);
+    setVal('school-address', s.address);
+    const sec = state.section;
+    setVal('grade-level', sec.grade); setVal('semester', sec.semester);
+    setVal('section-name', sec.name); setVal('track', sec.track);
+    setVal('strand', sec.strand); setVal('room-no', sec.room);
+    const t = state.teacher;
+    setVal('adviser', t.adviser); setVal('adviser-empno', t.adviserEmp);
+    setVal('principal', t.principal); setVal('principal-empno', t.principalEmp);
+  }
+
+  function setVal(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.value = val;
+  }
+
+  // ─── SAVE SETUP ──────────────────────────────────────────────────
+  function saveSetup() {
+    state.school = {
+      name: getVal('school-name'), id: getVal('school-id'),
+      year: getVal('school-year'), region: getVal('region'),
+      division: getVal('division'), district: getVal('district'),
+      address: getVal('school-address')
+    };
+    state.section = {
+      grade: getVal('grade-level'), semester: getVal('semester'),
+      name: getVal('section-name'), track: getVal('track'),
+      strand: getVal('strand'), room: getVal('room-no')
+    };
+    state.teacher = {
+      adviser: getVal('adviser'), adviserEmp: getVal('adviser-empno'),
+      principal: getVal('principal'), principalEmp: getVal('principal-empno')
+    };
+    saveAll();
+    updateAllPreviews();
+    updateStats();
+    showNotif('✅', 'Settings saved successfully!');
+  }
+
+  function getVal(id) {
+    return document.getElementById(id)?.value || '';
+  }
+
+  function saveAll() {
+    localStorage.setItem('shs_sf_data', JSON.stringify(state));
+  }
+
+  // ─── SUBJECTS ────────────────────────────────────────────────────
+  function renderSubjects() {
+    const tbody = document.getElementById('subjects-tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    if (!state.subjects.length) {
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:rgba(255,255,255,0.25);padding:20px;">No subjects. Click + Add Subject.</td></tr>';
+      return;
+    }
+    state.subjects.forEach((s, i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+      <td style="font-family:var(--font-mono);color:rgba(255,255,255,0.4)">${i+1}</td>
+      <td><input class="form-input" style="font-size:12px;padding:5px 8px;" value="${s.name}" onchange="state.subjects[${i}].name=this.value;saveAll()"></td>
+      <td><select class="form-select" style="font-size:12px;padding:5px 8px;" onchange="state.subjects[${i}].cat=this.value;saveAll()">
+        <option ${s.cat==='Core'?'selected':''}>Core</option>
+        <option ${s.cat==='Applied'?'selected':''}>Applied</option>
+        <option ${s.cat==='Specialized'?'selected':''}>Specialized</option>
+        <option ${s.cat==='TVL'?'selected':''}>TVL</option>
+      </select></td>
+      <td><input class="form-input" style="font-size:12px;padding:5px 8px;width:60px;text-align:center;font-family:var(--font-mono);" type="number" value="${s.units}" onchange="state.subjects[${i}].units=+this.value;saveAll()"></td>
+      <td><input class="form-input" style="font-size:12px;padding:5px 8px;" value="${s.teacher}" placeholder="Teacher name" onchange="state.subjects[${i}].teacher=this.value;saveAll()"></td>
+      <td><button class="btn btn-danger btn-sm" onclick="removeSubject(${i})">Remove</button></td>
+    `;
+      tbody.appendChild(tr);
+    });
+    document.getElementById('stat-subjects').textContent = state.subjects.length;
+  }
+
+  function addSubject() {
+    state.subjects.push({ name:'New Subject', cat:'Core', units:80, teacher:'' });
+    renderSubjects();
+    saveAll();
+  }
+
+  function removeSubject(i) {
+    state.subjects.splice(i, 1);
+    renderSubjects();
+    saveAll();
+  }
+
+  function updateStrand() {
+    const grade = getVal('grade-level');
+    const track = getVal('track');
+    const key = `${track}-${grade}`;
+    if (DEFAULT_SUBJECTS[key]) {
+      if (confirm('Update subjects to defaults for ' + track + ' Grade ' + grade + '?')) {
+        state.subjects = JSON.parse(JSON.stringify(DEFAULT_SUBJECTS[key]));
+        renderSubjects();
+        saveAll();
+      }
+    }
+  }
+
+  // ─── STUDENTS ────────────────────────────────────────────────────
+  function addStudent() {
+    state.editingStudent = -1;
+    ['m-lrn','m-last','m-first','m-middle','m-ext','m-address','m-guardian','m-contact','m-religion'].forEach(id => {
+      const el = document.getElementById(id); if(el) el.value = '';
+    });
+    document.getElementById('m-sex').value = 'M';
+    document.getElementById('m-status').value = 'Enrolled';
+    document.getElementById('student-modal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('student-modal').style.display = 'none';
+  }
+
+  function saveStudent() {
+    const lrn = getVal('m-lrn').trim();
+    if (!lrn || lrn.length !== 12 || !/^\d+$/.test(lrn)) {
+      showNotif('⚠️', 'Please enter a valid 12-digit LRN'); return;
+    }
+    const last = getVal('m-last').trim().toUpperCase();
+    if (!last) { showNotif('⚠️', 'Last name is required'); return; }
+
+    const bday = getVal('m-bday');
+    let age = '';
+    if (bday) {
+      const d = new Date(bday), now = new Date();
+      age = now.getFullYear() - d.getFullYear() -
+        (now < new Date(now.getFullYear(), d.getMonth(), d.getDate()) ? 1 : 0);
+    }
+
+    const student = {
+      lrn, last, first: getVal('m-first').trim(),
+      middle: getVal('m-middle').trim(), ext: getVal('m-ext').trim(),
+      sex: getVal('m-sex'), bday, age,
+      tongue: getVal('m-tongue'), religion: getVal('m-religion'),
+      address: getVal('m-address'), guardian: getVal('m-guardian'),
+      contact: getVal('m-contact'), status: getVal('m-status')
+    };
+
+    if (state.editingStudent >= 0) {
+      state.students[state.editingStudent] = student;
+    } else {
+      state.students.push(student);
+    }
+    saveAll();
+    renderStudentsTable();
+    updateSelectDropdowns();
+    updateStats();
+    updateAllPreviews();
+    closeModal();
+    showNotif('✅', state.editingStudent >= 0 ? 'Student updated!' : 'Student added successfully!');
+  }
+
+  function renderStudentsTable() {
+    const tbody = document.getElementById('students-tbody');
+    const badge = document.getElementById('student-count');
+    const sideCount = document.getElementById('student-count-badge');
+    if (!tbody) return;
+
+    const count = state.students.length;
+    if (badge) badge.textContent = count + ' student' + (count !== 1 ? 's' : '');
+    if (sideCount) sideCount.textContent = count;
+
+    if (!count) {
+      tbody.innerHTML = '<tr id="no-students-row"><td colspan="11" style="text-align:center;color:rgba(255,255,255,0.25);padding:32px;font-size:13px;">No students enrolled yet.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = '';
+    state.students.forEach((s, i) => {
+      const tr = document.createElement('tr');
+      const statusClass = { 'Enrolled':'badge-green', 'Transferred':'badge-blue', 'Dropped':'badge-red' }[s.status] || 'badge-gray';
+      tr.innerHTML = `
+      <td class="student-num">${i+1}</td>
+      <td style="font-family:var(--font-mono);font-size:12px;">${s.lrn}</td>
+      <td style="font-weight:500;">${s.last}</td>
+      <td>${s.first}</td>
+      <td>${s.middle ? s.middle[0]+'.' : ''}</td>
+      <td><span class="badge ${s.sex==='M'?'badge-blue':'badge-gold'}">${s.sex}</span></td>
+      <td style="font-size:12px;font-family:var(--font-mono);">${s.bday || '—'}</td>
+      <td style="text-align:center;">${s.age || '—'}</td>
+      <td>${s.tongue}</td>
+      <td><span class="badge ${statusClass}">${s.status}</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="editStudent(${i})">Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteStudent(${i})" style="margin-left:4px;">Del</button>
+      </td>
+    `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function editStudent(i) {
+    state.editingStudent = i;
+    const s = state.students[i];
+    setVal('m-lrn', s.lrn); setVal('m-last', s.last);
+    setVal('m-first', s.first); setVal('m-middle', s.middle);
+    setVal('m-ext', s.ext); setVal('m-sex', s.sex);
+    setVal('m-bday', s.bday); setVal('m-tongue', s.tongue);
+    setVal('m-religion', s.religion); setVal('m-status', s.status);
+    setVal('m-address', s.address); setVal('m-guardian', s.guardian);
+    setVal('m-contact', s.contact);
+    document.getElementById('student-modal').style.display = 'flex';
+  }
+
+  function deleteStudent(i) {
+    if (!confirm(`Delete ${state.students[i].last}, ${state.students[i].first}?`)) return;
+    state.students.splice(i, 1);
+    saveAll();
+    renderStudentsTable();
+    updateSelectDropdowns();
+    updateStats();
+    updateAllPreviews();
+    showNotif('🗑️', 'Student removed.');
+  }
+
+  function filterStudents() {
+    const q = document.getElementById('search-student').value.toLowerCase();
+    document.querySelectorAll('#students-tbody tr').forEach(tr => {
+      tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
+
+  function importStudents() {
+    showNotif('ℹ️', 'Bulk import: Use Tab-separated values (LRN, Last, First, Middle, Sex, Birthdate)');
+  }
+
+  // ─── GRADE ENTRY ─────────────────────────────────────────────────
+  function renderGradeTable() {
+    const quarter = getVal('grade-quarter');
+    const title = { q1:'1st Quarter', q2:'2nd Quarter', q3:'3rd Quarter', q4:'4th Quarter' }[quarter];
+    const titleEl = document.getElementById('grade-table-title');
+    if (titleEl) titleEl.textContent = title + ' Grades';
+
+    const thead = document.getElementById('grade-thead');
+    const tbody = document.getElementById('grade-tbody');
+    if (!thead || !tbody) return;
+
+    if (!state.students.length || !state.subjects.length) {
+      thead.innerHTML = '';
+      tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:20px;color:rgba(255,255,255,0.3);">Add students and subjects first.</td></tr>';
+      return;
+    }
+
+    let theadHtml = '<tr><th>#</th><th>Student Name</th>';
+    state.subjects.forEach(s => {
+      theadHtml += `<th style="max-width:80px;white-space:normal;line-height:1.2;">${s.name.split(' ').slice(0,3).join(' ')}</th>`;
+    });
+    theadHtml += '<th>Average</th><th>Remarks</th></tr>';
+    thead.innerHTML = theadHtml;
+
+    tbody.innerHTML = '';
+    state.students.filter(s => s.status === 'Enrolled').forEach((student, si) => {
+      if (!state.grades[si]) state.grades[si] = {};
+      const tr = document.createElement('tr');
+      let html = `<td class="student-num">${si+1}</td><td style="white-space:nowrap;font-weight:500;">${student.last}, ${student.first}</td>`;
+
+      state.subjects.forEach((subj, subi) => {
+        if (!state.grades[si][subi]) state.grades[si][subi] = { q1:'', q2:'', q3:'', q4:'' };
+        const val = state.grades[si][subi][quarter] || '';
+        html += `<td><input class="grade-input" type="number" min="60" max="100" value="${val}" placeholder="—"
+        onchange="setGrade(${si},${subi},'${quarter}',this.value)" onblur="validateGrade(this)"></td>`;
+      });
+
+      const avg = computeStudentAvg(si);
+      const remarks = avg >= 75 ? '<span class="badge badge-green">Passed</span>' : (avg > 0 ? '<span class="badge badge-red">Failed</span>' : '—');
+      html += `<td style="font-weight:600;text-align:center;font-family:var(--font-mono);">${avg > 0 ? avg.toFixed(0) : '—'}</td>`;
+      html += `<td>${remarks}</td>`;
+      tr.innerHTML = html;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function setGrade(si, subi, quarter, val) {
+    if (!state.grades[si]) state.grades[si] = {};
+    if (!state.grades[si][subi]) state.grades[si][subi] = { q1:'', q2:'', q3:'', q4:'' };
+    state.grades[si][subi][quarter] = val ? Math.min(100, Math.max(60, +val)) : '';
+    saveAll();
+  }
+
+  function validateGrade(input) {
+    const v = +input.value;
+    if (input.value && (v < 60 || v > 100)) {
+      input.style.borderColor = 'var(--danger)';
+      showNotif('⚠️', 'Grades must be between 60–100');
+    } else {
+      input.style.borderColor = '';
+    }
+  }
+
+  function computeStudentAvg(si) {
+    if (!state.grades[si] || !state.subjects.length) return 0;
+    let total = 0, count = 0;
+    state.subjects.forEach((_, subi) => {
+      if (!state.grades[si][subi]) return;
+      const g = state.grades[si][subi];
+      const quarters = [g.q1, g.q2, g.q3, g.q4].filter(v => v !== '' && v !== undefined && v !== null);
+      if (quarters.length) {
+        total += quarters.reduce((a,b) => a + +b, 0) / quarters.length;
+        count++;
+      }
+    });
+    return count ? total / count : 0;
+  }
+
+  function computeAverages() {
+    renderGradeTable();
+    showNotif('⚡', 'Averages computed!');
+    document.getElementById('grade-status').textContent = 'Computed';
+    document.getElementById('grade-status').className = 'badge badge-green';
+  }
+
+  // ─── SF1 PREVIEW ─────────────────────────────────────────────────
+  function updateSF1() {
+    const s = state.school, sec = state.section, t = state.teacher;
+    setTextContent('sf1-school-name', s.name || 'School Name');
+    setTextContent('sf1-sy', s.year);
+    setTextContent('sf1-grade', sec.grade);
+    setTextContent('sf1-section', sec.name || '__________');
+    setTextContent('sf1-adviser', t.adviser || 'Class Adviser');
+    setTextContent('sf1-principal', t.principal || 'School Principal');
+
+    const tbody = document.getElementById('sf1-tbody');
+    if (!tbody) return;
+    if (!state.students.length) {
+      tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:12px;color:#666;font-size:9px;">No students enrolled.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = state.students.map((s, i) => `
+    <tr>
+      <td style="border:0.5px solid #ccc;padding:2px 3px;text-align:center;">${i+1}</td>
+      <td style="border:0.5px solid #ccc;padding:2px 3px;font-family:monospace;font-size:8px;">${s.lrn}</td>
+      <td style="border:0.5px solid #ccc;padding:2px 3px;font-weight:bold;">${s.last}</td>
+      <td style="border:0.5px solid #ccc;padding:2px 3px;">${s.first}</td>
+      <td style="border:0.5px solid #ccc;padding:2px 3px;text-align:center;">${s.middle?s.middle[0]+'.':''}</td>
+      <td style="border:0.5px solid #ccc;padding:2px 3px;text-align:center;">${s.sex}</td>
+      <td style="border:0.5px solid #ccc;padding:2px 3px;font-size:8px;">${s.bday||'—'}</td>
+      <td style="border:0.5px solid #ccc;padding:2px 3px;text-align:center;">${s.age||'—'}</td>
+      <td style="border:0.5px solid #ccc;padding:2px 3px;">${s.tongue}</td>
+    </tr>
+  `).join('');
+  }
+
+  // ─── SF2 PREVIEW ─────────────────────────────────────────────────
+  function updateSF2() {
+    setTextContent('sf2-school-name', state.school.name || 'School Name');
+    setTextContent('sf2-sy', state.school.year);
+    setTextContent('sf2-grade', state.section.grade);
+
+    const tbody = document.getElementById('sf2-tbody');
+    if (!tbody) return;
+    if (!state.students.length) {
+      tbody.innerHTML = '<tr><td colspan="24" style="text-align:center;padding:12px;color:#666;">Add students to generate attendance form</td></tr>';
+      return;
+    }
+    tbody.innerHTML = state.students.map((s, i) => `
+    <tr>
+      <td style="border:0.5px solid #ccc;padding:1px;text-align:center;font-size:8px;">${i+1}</td>
+      <td style="border:0.5px solid #ccc;padding:1px;font-size:7px;">${s.last}, ${s.first[0]}.</td>
+      ${Array(20).fill('<td style="border:0.5px solid #ccc;padding:1px;width:12px;"></td>').join('')}
+      <td style="border:0.5px solid #ccc;padding:1px;"></td>
+      <td style="border:0.5px solid #ccc;padding:1px;"></td>
+    </tr>
+  `).join('');
+  }
+
+  // ─── SF9 PREVIEW ─────────────────────────────────────────────────
+  function renderSF9() {
+    const sel = document.getElementById('sf9-student');
+    const idx = sel?.value;
+    const container = document.getElementById('sf9-container');
+    if (!container) return;
+    if (idx === '' || idx === undefined) {
+      container.innerHTML = '<div class="info-box">Select a student above to preview their Report Card (SF9).</div>';
+      return;
+    }
+    const s = state.students[+idx];
+    if (!s) return;
+    const fullName = `${s.last}, ${s.first} ${s.middle?s.middle[0]+'.':''} ${s.ext||''}`.trim();
+
+    let subjectRows = state.subjects.map((subj, si) => {
+      const g = state.grades[+idx]?.[si] || {};
+      const avg = [g.q1,g.q2,g.q3,g.q4].filter(v=>v).reduce((a,b,_,arr)=>a+ +b/arr.length, 0);
+      return `<tr>
+      <td style="border:0.5px solid #333;padding:2px 4px;text-align:left;font-size:8px;">${subj.name}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;">${g.q1||''}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;">${g.q2||''}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;">${g.q3||''}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;">${g.q4||''}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;font-weight:bold;">${avg?avg.toFixed(0):''}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;">${avg>=75?'Passed':avg?'Failed':''}</td>
+    </tr>`;
+    }).join('');
+
+    const genAvg = computeStudentAvg(+idx);
+    const schoolInfo = state.school.name || 'School Name';
+
+    container.innerHTML = `
+    <div class="form-preview">
+      <div class="form-header-ph">
+        <div class="agency">Republic of the Philippines · Department of Education</div>
+        <div class="school-name">${schoolInfo}</div>
+        <div class="form-name">SCHOOL FORM 9 (SF9) – Learner's Progress Report Card</div>
+        <div style="font-size:8px;opacity:0.8;">S.Y. ${state.school.year} · Grade ${state.section.grade} – Semester ${state.section.semester}</div>
+      </div>
+      <div class="form-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:9px;font-family:Arial;margin-bottom:8px;">
+          <div><span style="color:#666;">Name:</span> <strong>${fullName}</strong></div>
+          <div><span style="color:#666;">LRN:</span> ${s.lrn}</div>
+          <div><span style="color:#666;">Section:</span> ${state.section.name || '___'}</div>
+          <div><span style="color:#666;">Track:</span> ${state.section.track}</div>
+          <div><span style="color:#666;">Strand:</span> ${state.section.strand}</div>
+          <div><span style="color:#666;">Adviser:</span> ${state.teacher.adviser || '___'}</div>
+        </div>
+        <table style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr style="background:#e8e8e8;">
+              <th style="border:0.5px solid #333;padding:3px;text-align:left;font-size:8px;">SUBJECT</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">Q1</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">Q2</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">Q3</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">Q4</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">FINAL GRADE</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">REMARKS</th>
+            </tr>
+          </thead>
+          <tbody>${subjectRows}</tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5" style="border:0.5px solid #333;padding:3px;font-size:8px;text-align:right;font-weight:bold;">GENERAL AVERAGE:</td>
+              <td style="border:0.5px solid #333;padding:3px;text-align:center;font-size:10px;font-weight:bold;">${genAvg?genAvg.toFixed(0):''}</td>
+              <td style="border:0.5px solid #333;padding:3px;text-align:center;font-size:8px;font-weight:bold;">${genAvg>=75?'Promoted':genAvg?'Retained':''}</td>
+            </tr>
+          </tfoot>
+        </table>
+        <div style="display:flex;gap:24px;margin-top:16px;font-size:9px;font-family:Arial;">
+          <div style="flex:1">
+            <strong>Prepared by:</strong><br>
+            <div style="border-bottom:0.5px solid #999;margin-top:20px;"></div>
+            ${state.teacher.adviser || 'Class Adviser'}<br>Class Adviser
+          </div>
+          <div style="flex:1">
+            <strong>Noted by:</strong><br>
+            <div style="border-bottom:0.5px solid #999;margin-top:20px;"></div>
+            ${state.teacher.principal || 'School Principal'}<br>School Principal
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // ─── SF10 PREVIEW ─────────────────────────────────────────────────
+  function renderSF10() {
+    const sel = document.getElementById('sf10-student');
+    const idx = sel?.value;
+    const container = document.getElementById('sf10-container');
+    if (!container) return;
+    if (idx === '' || idx === undefined) {
+      container.innerHTML = '<div class="info-box">Select a student above to preview their Permanent Record (SF10).</div>';
+      return;
+    }
+    const s = state.students[+idx];
+    if (!s) return;
+    const fullName = `${s.last}, ${s.first} ${s.middle||''}`.trim();
+
+    container.innerHTML = `
+    <div class="form-preview">
+      <div class="form-header-ph">
+        <div class="agency">Republic of the Philippines · Department of Education</div>
+        <div class="school-name">${state.school.name || 'School Name'}</div>
+        <div class="form-name">SCHOOL FORM 10 (SF10) – Learner's Permanent Academic Record</div>
+      </div>
+      <div class="form-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:9px;font-family:Arial;">
+          <div class="form-field-row"><span class="form-field-label">NAME: </span><span class="form-field" style="font-weight:bold;">${fullName} ${s.ext||''}</span></div>
+          <div class="form-field-row"><span class="form-field-label">LRN: </span><span class="form-field">${s.lrn}</span></div>
+          <div class="form-field-row"><span class="form-field-label">DATE OF BIRTH: </span><span class="form-field">${s.bday||'__________'}</span></div>
+          <div class="form-field-row"><span class="form-field-label">SEX: </span><span class="form-field">${s.sex==='M'?'MALE':'FEMALE'}</span></div>
+          <div class="form-field-row"><span class="form-field-label">MOTHER TONGUE: </span><span class="form-field">${s.tongue}</span></div>
+          <div class="form-field-row"><span class="form-field-label">RELIGION: </span><span class="form-field">${s.religion||'__________'}</span></div>
+          <div class="form-field-row" style="grid-column:span 2"><span class="form-field-label">ADDRESS: </span><span class="form-field">${s.address||'__________'}</span></div>
+          <div class="form-field-row"><span class="form-field-label">GUARDIAN NAME: </span><span class="form-field">${s.guardian||'__________'}</span></div>
+          <div class="form-field-row"><span class="form-field-label">CONTACT: </span><span class="form-field">${s.contact||'__________'}</span></div>
+        </div>
+        <div class="form-section-title">ACADEMIC RECORDS – SENIOR HIGH SCHOOL</div>
+        <table style="width:100%;border-collapse:collapse;font-size:9px;font-family:Arial;">
+          <tr style="background:#e8e8e8;">
+            <th style="border:0.5px solid #888;padding:3px;">SCHOOL YEAR</th>
+            <th style="border:0.5px solid #888;padding:3px;">GRADE LEVEL</th>
+            <th style="border:0.5px solid #888;padding:3px;">SECTION</th>
+            <th style="border:0.5px solid #888;padding:3px;">SCHOOL</th>
+            <th style="border:0.5px solid #888;padding:3px;">GENERAL AVERAGE</th>
+            <th style="border:0.5px solid #888;padding:3px;">REMARKS</th>
+          </tr>
+          <tr>
+            <td style="border:0.5px solid #ccc;padding:3px;">${state.school.year}</td>
+            <td style="border:0.5px solid #ccc;padding:3px;">Grade ${state.section.grade}</td>
+            <td style="border:0.5px solid #ccc;padding:3px;">${state.section.name||'—'}</td>
+            <td style="border:0.5px solid #ccc;padding:3px;">${state.school.name||'—'}</td>
+            <td style="border:0.5px solid #ccc;padding:3px;text-align:center;font-weight:bold;">${computeStudentAvg(+idx).toFixed(0)||'—'}</td>
+            <td style="border:0.5px solid #ccc;padding:3px;text-align:center;">${computeStudentAvg(+idx)>=75?'Promoted':'—'}</td>
+          </tr>
+        </table>
+      </div>
+    </div>`;
+  }
+
+  // ─── FORM 137 ──────────────────────────────────────────────────────
+  function renderF137() {
+    const sel = document.getElementById('f137-student');
+    const idx = sel?.value;
+    const container = document.getElementById('f137-container');
+    if (!container) return;
+    if (idx === '' || idx === undefined) {
+      container.innerHTML = '<div class="info-box">Select a student above to generate their Form 137.</div>';
+      return;
+    }
+    const s = state.students[+idx];
+    if (!s) return;
+
+    const subjectRows = state.subjects.map((subj, si) => {
+      const g = state.grades[+idx]?.[si] || {};
+      const avg = [g.q1,g.q2,g.q3,g.q4].filter(v=>v).reduce((a,b,_,arr)=>a + +b/arr.length, 0);
+      return `<tr>
+      <td style="border:0.5px solid #333;padding:2px 4px;text-align:left;font-size:8px;">${subj.name}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;">${subj.units||80}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;">${g.q1||''}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;">${g.q2||''}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;">${g.q3||''}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;">${g.q4||''}</td>
+      <td style="border:0.5px solid #333;padding:2px;text-align:center;font-size:8px;font-weight:bold;">${avg?avg.toFixed(0):''}</td>
+    </tr>`;
+    }).join('');
+
+    container.innerHTML = `
+    <div class="form-preview">
+      <div style="background:#0038A8;color:white;padding:8px;display:grid;grid-template-columns:60px 1fr 60px;align-items:center;gap:8px;">
+        <div class="school-seal" style="margin:0 auto;">${state.school.name?state.school.name.split(' ').slice(0,3).join(' '):'SCHOOL'}</div>
+        <div style="text-align:center;font-family:Arial;">
+          <div style="font-size:8px;opacity:0.8;">Republic of the Philippines</div>
+          <div style="font-size:8px;opacity:0.8;">Department of Education</div>
+          <div style="font-size:11px;font-weight:bold;">${state.school.name||'SCHOOL NAME'}</div>
+          <div style="font-size:8px;opacity:0.8;">${state.school.address||'School Address'}</div>
+          <div style="font-size:10px;font-weight:bold;margin-top:4px;">FORM 137 – PERMANENT RECORD / TRANSCRIPT OF RECORDS</div>
+          <div style="font-size:8px;opacity:0.8;">SENIOR HIGH SCHOOL</div>
+        </div>
+        <div style="width:60px;height:60px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:7px;color:rgba(255,255,255,0.6);margin:0 auto;">PHOTO</div>
+      </div>
+      <div class="form-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:9px;font-family:Arial;margin-bottom:8px;">
+          <div><span style="color:#666;">NAME: </span><strong>${s.last}, ${s.first} ${s.middle||''} ${s.ext||''}</strong></div>
+          <div><span style="color:#666;">LRN: </span>${s.lrn}</div>
+          <div><span style="color:#666;">SCHOOL ID: </span>${state.school.id||'__________'}</div>
+          <div><span style="color:#666;">DATE OF BIRTH: </span>${s.bday||'__________'}</div>
+          <div><span style="color:#666;">SEX: </span>${s.sex==='M'?'MALE':'FEMALE'}</div>
+          <div><span style="color:#666;">TRACK/STRAND: </span>${state.section.track} – ${state.section.strand}</div>
+        </div>
+        <div class="form-section-title">ACADEMIC RECORD – GRADE ${state.section.grade} (S.Y. ${state.school.year})</div>
+        <table style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr style="background:#e8e8e8;">
+              <th style="border:0.5px solid #333;padding:3px;text-align:left;font-size:8px;">LEARNING AREA / SUBJECT</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">HOURS</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">Q1</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">Q2</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">Q3</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">Q4</th>
+              <th style="border:0.5px solid #333;padding:3px;font-size:8px;">FINAL GRADE</th>
+            </tr>
+          </thead>
+          <tbody>${subjectRows}</tbody>
+        </table>
+        <div style="display:flex;gap:24px;margin-top:16px;font-size:9px;font-family:Arial;">
+          <div style="flex:1"><strong>Prepared and Certified Correct by:</strong><br>
+            <div style="border-bottom:0.5px solid #999;margin-top:20px;"></div>
+            ${state.teacher.adviser||'Class Adviser'}<br>Class Adviser
+          </div>
+          <div style="flex:1"><strong>Certified Correct:</strong><br>
+            <div style="border-bottom:0.5px solid #999;margin-top:20px;"></div>
+            ${state.teacher.principal||'School Principal'}<br>School Principal<br>
+            Date: ____________________
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // ─── FORM 138 ──────────────────────────────────────────────────────
+  function renderF138() {
+    const sel = document.getElementById('f138-student');
+    const idx = sel?.value;
+    const container = document.getElementById('f138-container');
+    if (!container) return;
+    if (idx === '' || idx === undefined) {
+      container.innerHTML = '<div class="info-box">Select a student above to generate their Form 138.</div>';
+      return;
+    }
+    const s = state.students[+idx];
+    if (!s) return;
+
+    const rows1 = state.subjects.slice(0, Math.ceil(state.subjects.length/2)).map((subj,si) => {
+      const g = state.grades[+idx]?.[si]||{};
+      const avg = [g.q1,g.q2,g.q3,g.q4].filter(v=>v).reduce((a,b,_,arr)=>a + +b/arr.length, 0);
+      return `<tr><td style="border:0.5px solid #999;padding:2px 4px;font-size:8px;">${subj.name}</td>
+      <td style="border:0.5px solid #999;padding:2px;text-align:center;font-size:8px;">${avg?avg.toFixed(0):''}</td>
+      <td style="border:0.5px solid #999;padding:2px;text-align:center;font-size:8px;">${avg>=75?'P':'F'}</td></tr>`;
+    }).join('');
+
+    container.innerHTML = `
+    <div class="form-preview">
+      <div class="form-header-ph">
+        <div class="agency">Republic of the Philippines · Department of Education</div>
+        <div class="school-name">${state.school.name||'School Name'}</div>
+        <div class="form-name">FORM 138 – REPORT CARD</div>
+        <div style="font-size:8px;opacity:0.8;">S.Y. ${state.school.year} · Grade ${state.section.grade} · Semester ${state.section.semester}</div>
+      </div>
+      <div class="form-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:9px;font-family:Arial;margin-bottom:6px;">
+          <div><span style="color:#666;">NAME: </span><strong>${s.last}, ${s.first} ${s.middle||''}</strong></div>
+          <div><span style="color:#666;">LRN: </span>${s.lrn}</div>
+          <div><span style="color:#666;">TRACK: </span>${state.section.track}</div>
+          <div><span style="color:#666;">STRAND: </span>${state.section.strand}</div>
+        </div>
+        <table style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr style="background:#0038A8;"><th colspan="3" style="border:0.5px solid #333;padding:3px;font-size:8px;color:white;">SUBJECTS AND GRADES</th></tr>
+            <tr style="background:#e8e8e8;">
+              <th style="border:0.5px solid #999;padding:2px;text-align:left;font-size:8px;">SUBJECT</th>
+              <th style="border:0.5px solid #999;padding:2px;font-size:8px;">FINAL</th>
+              <th style="border:0.5px solid #999;padding:2px;font-size:8px;">REMARKS</th>
+            </tr>
+          </thead>
+          <tbody>${rows1}</tbody>
+          <tfoot>
+            <tr>
+              <td style="border:0.5px solid #999;padding:3px;font-size:8px;text-align:right;font-weight:bold;" colspan="1">GENERAL AVERAGE:</td>
+              <td style="border:0.5px solid #999;padding:3px;text-align:center;font-size:9px;font-weight:bold;">${computeStudentAvg(+idx).toFixed(0)||'—'}</td>
+              <td style="border:0.5px solid #999;padding:3px;text-align:center;font-size:8px;font-weight:bold;">${computeStudentAvg(+idx)>=75?'Promoted':'—'}</td>
+            </tr>
+          </tfoot>
+        </table>
+        <div style="display:flex;gap:12px;margin-top:12px;font-size:9px;font-family:Arial;">
+          <div style="flex:1"><strong>Class Adviser:</strong><br>
+            <div style="border-bottom:0.5px solid #999;margin-top:16px;"></div>
+            ${state.teacher.adviser||'__________________'}
+          </div>
+          <div style="flex:1"><strong>School Principal:</strong><br>
+            <div style="border-bottom:0.5px solid #999;margin-top:16px;"></div>
+            ${state.teacher.principal||'__________________'}
+          </div>
+          <div style="flex:1"><strong>Date:</strong><br>
+            <div style="border-bottom:0.5px solid #999;margin-top:16px;"></div>
+            ${new Date().toLocaleDateString('en-PH', {year:'numeric',month:'long',day:'numeric'})}
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // ─── UPDATE ALL PREVIEWS ─────────────────────────────────────────
+  function updateAllPreviews() {
+    updateSF1();
+    updateSF2();
+  }
+
+  // ─── UPDATE SELECT DROPDOWNS ────────────────────────────────────
+  function updateSelectDropdowns() {
+    ['sf9-student','sf10-student','f137-student','f138-student'].forEach(id => {
+      const sel = document.getElementById(id);
+      if (!sel) return;
+      const val = sel.value;
+      sel.innerHTML = '<option value="">Select Student...</option>' +
+        state.students.map((s,i) => `<option value="${i}">${s.last}, ${s.first}</option>`).join('');
+      sel.value = val;
+    });
+  }
+
+  // ─── STATS ──────────────────────────────────────────────────────
+  function updateStats() {
+    document.getElementById('stat-students').textContent = state.students.filter(s=>s.status==='Enrolled').length;
+    document.getElementById('stat-subjects').textContent = state.subjects.length;
+    const sy = document.getElementById('school-year')?.value || '2025-2026';
+    document.getElementById('stat-sy').textContent = sy;
+  }
+
+  // ─── NAVIGATION ─────────────────────────────────────────────────
+  function switchMain(tab) {
+    document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach((el, i) => {
+      const tabs = ['setup','masterlist','grades','sf1','sf2','sf9','sf10','f137','f138'];
+      if (tabs[i] === tab) el.classList.add('active');
+    });
+    const panel = document.getElementById(`panel-${tab}`);
+    if (panel) panel.classList.add('active');
+
+    if (tab === 'grades') renderGradeTable();
+    if (tab === 'sf1') updateSF1();
+    if (tab === 'sf2') updateSF2();
+    if (tab === 'masterlist') renderStudentsTable();
+    if (['sf9','sf10','f137','f138'].includes(tab)) updateSelectDropdowns();
+  }
+
+  function sidebarNav(el, target) {
+    document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+    const targetEl = document.getElementById(target);
+    if (targetEl) { targetEl.scrollIntoView({ behavior:'smooth', block:'start' }); }
+  }
+
+  // ─── HELPERS ───────────────────────────────────────────────────
+  function setTextContent(id, text) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  }
+
+  function showNotif(icon, text) {
+    const notif = document.getElementById('notification');
+    document.getElementById('notif-icon').textContent = icon;
+    document.getElementById('notif-text').textContent = text;
+    notif.classList.add('show');
+    setTimeout(() => notif.classList.remove('show'), 3000);
+  }
+
+  function exportData() {
+    const json = JSON.stringify(state, null, 2);
+    const blob = new Blob([json], { type:'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `shs_sf_data_${new Date().toISOString().split('T')[0]}.json`;
+    a.click();
+    showNotif('💾', 'Data exported successfully!');
+  }
+
+  // Close modal on backdrop click
+  document.getElementById('student-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Initial render
+  renderStudentsTable();
+  updateSelectDropdowns();
+  updateStats();
+</script>
+</body>
+</html>
