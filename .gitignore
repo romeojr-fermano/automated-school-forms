@@ -5,6 +5,7 @@ out
 .eslintcache
 *.log*
 build
+.screenshots
 
 # VS Code
 .vscode
