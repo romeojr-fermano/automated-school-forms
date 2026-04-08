@@ -15,3 +15,8 @@ build
 
 # Opencode
 .opencode
+.opencode.json
+
+# Claude
+.claude
+.mcp.json
