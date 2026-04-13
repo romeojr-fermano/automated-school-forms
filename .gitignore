@@ -20,3 +20,6 @@ build
 # Claude
 .claude
 .mcp.json
+
+# Gemini
+.gemini

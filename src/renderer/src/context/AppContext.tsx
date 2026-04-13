@@ -6,7 +6,8 @@ import {
   Subject,
   Student,
   SubjectGrade,
-  MonthlyAttendance
+  MonthlyAttendance,
+  TestCheckerState
 } from '../types'
 
 interface AppContextType {
@@ -18,6 +19,7 @@ interface AppContextType {
   students: Student[]
   grades: Record<string, SubjectGrade[]>
   attendance: Record<string, MonthlyAttendance>
+  testChecker: TestCheckerState
   currentPage: string
   activeSection: string
 
@@ -29,6 +31,7 @@ interface AppContextType {
   setStudents: (students: Student[]) => void
   setGrades: (grades: Record<string, SubjectGrade[]>) => void
   setAttendance: (attendance: Record<string, MonthlyAttendance>) => void
+  setTestChecker: (testChecker: TestCheckerState) => void
   setCurrentPage: (page: string) => void
   setActiveSection: (section: string) => void
 }
@@ -58,6 +61,16 @@ const initialTeacher: Teacher = {
   employeeNumber: ''
 }
 
+const initialTestChecker: TestCheckerState = {
+  mode: 'manual',
+  answerKey: [],
+  students: [],
+  testName: '',
+  subject: '',
+  passingPct: 75,
+  date: ''
+}
+
 const STORAGE_KEY = 'shs-forms-data'
 
 interface StoredData {
@@ -69,6 +82,7 @@ interface StoredData {
   students: Student[]
   grades: Record<string, SubjectGrade[]>
   attendance: Record<string, MonthlyAttendance>
+  testChecker: TestCheckerState
 }
 
 function loadFromStorage(): Partial<StoredData> {
@@ -106,6 +120,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   )
   const [currentPage, setCurrentPage] = useState<string>('setup')
   const [activeSection, setActiveSection] = useState<string>('school-info')
+  const [testChecker, setTestChecker] = useState<TestCheckerState>(
+    stored.testChecker || initialTestChecker
+  )
 
   useEffect(() => {
     saveToStorage({
@@ -116,9 +133,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
       subjects,
       students,
       grades,
-      attendance
+      attendance,
+      testChecker
     })
-  }, [school, section, adviser, principal, subjects, students, grades, attendance])
+  }, [school, section, adviser, principal, subjects, students, grades, attendance, testChecker])
 
   const value = {
     school,
@@ -129,6 +147,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     students,
     grades,
     attendance,
+    testChecker,
     currentPage,
     activeSection,
     setSchool,
@@ -139,6 +158,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setStudents,
     setGrades,
     setAttendance,
+    setTestChecker,
     setCurrentPage,
     setActiveSection
   }

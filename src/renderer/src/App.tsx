@@ -11,6 +11,7 @@ import SF9GeneratorPage from './components/pages/SF9GeneratorPage'
 import SF10GeneratorPage from './components/pages/SF10GeneratorPage'
 import Form137GeneratorPage from './components/pages/Form137GeneratorPage'
 import Form138GeneratorPage from './components/pages/Form138GeneratorPage'
+import TestCheckerPage from './components/pages/TestCheckerPage'
 import React from 'react'
 
 function App(): React.JSX.Element {
