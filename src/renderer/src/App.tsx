@@ -37,6 +37,8 @@ function App(): React.JSX.Element {
         return <Form137GeneratorPage />
       case 'f138':
         return <Form138GeneratorPage />
+      case 'checker':
+        return <TestCheckerPage />
       default:
         return <SchoolSetupPage />
     }

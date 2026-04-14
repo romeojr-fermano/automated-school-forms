@@ -66,6 +66,7 @@ function TestCheckerPage(): React.JSX.Element {
       newKey.push({ item: i, answer: draftAnswers[i] || '' })
     }
     setAnswerKey(newKey)
+    setCurrentStudentAnswers({})
 
     // Recalculate all students based on new key
     const officialKey = newKey.filter((k) => k.answer)
@@ -645,54 +646,58 @@ function TestCheckerPage(): React.JSX.Element {
             <div
               id="chk-stud-answers"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(5, 1fr)',
+                display: answerKey.length > 0 ? 'grid' : 'block',
+                gridTemplateColumns: answerKey.length > 0 ? 'repeat(5, 1fr)' : 'none',
                 gap: '4px',
                 maxHeight: '200px',
                 overflowY: 'auto',
-                padding: '4px',
+                padding: answerKey.length > 0 ? '4px' : '20px',
                 background: 'var(--navy-mid)',
-                borderRadius: '6px'
+                borderRadius: '6px',
+                textAlign: 'center'
               }}
             >
-              {(mode === 'csv' || answerKey.some((k) => k.answer)
-                ? answerKey.filter((k) => mode === 'csv' || k.answer)
-                : Array.from({ length: numItems }, (_, i) => ({ item: i + 1 }))
-              ).map((k) => (
-                <div
-                  key={k.item}
-                  style={{ display: 'flex', alignItems: 'center', gap: '4px', minWidth: 0 }}
-                >
-                  <span
-                    style={{
-                      fontSize: '11px',
-                      color: 'rgba(255,255,255,0.4)',
-                      minWidth: '20px',
-                      textAlign: 'right'
-                    }}
+              {answerKey.length > 0 ? (
+                answerKey.map((k) => (
+                  <div
+                    key={k.item}
+                    style={{ display: 'flex', alignItems: 'center', gap: '4px', minWidth: 0 }}
                   >
-                    {k.item}
-                  </span>
-                  <input
-                    type="text"
-                    maxLength={1}
-                    value={currentStudentAnswers[k.item] || ''}
-                    onChange={(e) => handleStudentAnswerChange(k.item, e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    style={{
-                      width: '32px',
-                      padding: '6px 4px',
-                      textAlign: 'center',
-                      fontSize: '12px',
-                      textTransform: 'uppercase',
-                      background: 'rgba(255,255,255,0.06)',
-                      border: '1px solid rgba(255,255,255,0.1)',
-                      color: 'white',
-                      borderRadius: '4px'
-                    }}
-                  />
+                    <span
+                      style={{
+                        fontSize: '11px',
+                        color: 'rgba(255,255,255,0.4)',
+                        minWidth: '20px',
+                        textAlign: 'right'
+                      }}
+                    >
+                      {k.item}
+                    </span>
+                    <input
+                      type="text"
+                      maxLength={1}
+                      value={currentStudentAnswers[k.item] || ''}
+                      onChange={(e) => handleStudentAnswerChange(k.item, e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      style={{
+                        width: '32px',
+                        padding: '6px 4px',
+                        textAlign: 'center',
+                        fontSize: '12px',
+                        textTransform: 'uppercase',
+                        background: 'rgba(255,255,255,0.06)',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        color: 'white',
+                        borderRadius: '4px'
+                      }}
+                    />
+                  </div>
+                ))
+              ) : (
+                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>
+                  Please build your answer key to enable student input
                 </div>
-              ))}
+              )}
             </div>
             <div style={{ marginTop: '8px', display: 'flex', gap: '6px' }}>
               <Button
@@ -753,7 +758,7 @@ function TestCheckerPage(): React.JSX.Element {
               </div>
               <div style={{ fontSize: '12px' }}>
                 <span style={{ color: 'rgba(255,255,255,0.4)' }}>Items:</span>{' '}
-                <strong>{answerKey.filter((k) => k.answer).length || numItems}</strong>
+                <strong>{answerKey.length}</strong>
               </div>
               <div style={{ fontSize: '12px' }}>
                 <span style={{ color: 'rgba(255,255,255,0.4)' }}>Students:</span>{' '}
@@ -957,7 +962,7 @@ function TestCheckerPage(): React.JSX.Element {
                           fontWeight: 500
                         }}
                       >
-                        {student.score}/{answerKey.filter((k) => k.answer).length || numItems}
+                        {student.score}/{answerKey.length}
                       </td>
                       <td
                         style={{
