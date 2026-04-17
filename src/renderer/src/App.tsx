@@ -17,7 +17,7 @@ import React from 'react'
 function App(): React.JSX.Element {
   const { currentPage } = useApp()
 
-  const renderPage = () => {
+  const renderPage = (): React.JSX.Element => {
     switch (currentPage) {
       case 'setup':
         return <SchoolSetupPage />

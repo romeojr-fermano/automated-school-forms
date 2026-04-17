@@ -35,7 +35,7 @@ function GradeEntryPage(): React.JSX.Element {
       : ''
   }
 
-  const handleGradeChange = (studentId: string, subjectId: string, value: string) => {
+  const handleGradeChange = (studentId: string, subjectId: string, value: string): void => {
     const gradeValue = value === '' ? null : Number(value)
 
     const currentGrades = grades
@@ -70,7 +70,7 @@ function GradeEntryPage(): React.JSX.Element {
     setIsComputed(false)
   }
 
-  const computeAverages = () => {
+  const computeAverages = (): void => {
     students.forEach((student) => {
       const studentGrades: SubjectGrade[] = (grades[student.id] as SubjectGrade[]) || []
       subjects.forEach((subject) => {
@@ -87,7 +87,7 @@ function GradeEntryPage(): React.JSX.Element {
             (g) => g.subjectId === subject.id && g.quarter === 'final'
           )
 
-          let updatedGrades = [...studentGrades]
+          const updatedGrades = [...studentGrades]
           if (finalGradeIndex >= 0) {
             updatedGrades[finalGradeIndex] = {
               subjectId: subject.id,

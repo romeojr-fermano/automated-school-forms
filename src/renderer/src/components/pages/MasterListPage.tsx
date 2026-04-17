@@ -56,7 +56,7 @@ function MasterListPage(): React.JSX.Element {
     return age
   }
 
-  const handleSaveStudent = () => {
+  const handleSaveStudent = (): void => {
     if (!newStudent.lrn || !newStudent.lastname || !newStudent.firstname) {
       alert('Please fill in required fields')
       return
@@ -94,7 +94,7 @@ function MasterListPage(): React.JSX.Element {
     setShowModal(false)
   }
 
-  const handleEditStudent = (student: Student) => {
+  const handleEditStudent = (student: Student): void => {
     setEditingStudentId(student.id)
     setNewStudent({
       lrn: student.lrn,
@@ -109,7 +109,7 @@ function MasterListPage(): React.JSX.Element {
     setShowModal(true)
   }
 
-  const handleCloseModal = () => {
+  const handleCloseModal = (): void => {
     setShowModal(false)
     setEditingStudentId(null)
     setNewStudent({
@@ -124,7 +124,7 @@ function MasterListPage(): React.JSX.Element {
     })
   }
 
-  const handleDeleteStudent = (id: string) => {
+  const handleDeleteStudent = (id: string): void => {
     if (confirm('Are you sure you want to delete this student?')) {
       setStudents(students.filter((s) => s.id !== id))
     }

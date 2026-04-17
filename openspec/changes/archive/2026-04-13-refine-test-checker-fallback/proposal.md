@@ -10,9 +10,11 @@ The current live grid implementation in the Test Checker shows an empty grid whe
 ## Capabilities
 
 ### New Capabilities
+
 - `live-grid-fallback`: Ensures a minimum item count is displayed during live updates.
 
 ### Modified Capabilities
+
 - `live-answer-grid`: Refines the reactive behavior to include the fallback.
 
 ## Impact

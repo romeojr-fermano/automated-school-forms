@@ -105,7 +105,7 @@ function saveToStorage(data: Partial<StoredData>): void {
   }
 }
 
-export function AppProvider({ children }: { children: ReactNode }) {
+export function AppProvider({ children }: { children: ReactNode }): React.JSX.Element {
   const stored = loadFromStorage()
 
   const [school, setSchool] = useState<School>(stored.school || initialSchool)
@@ -166,7 +166,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }
 
-export function useApp() {
+// eslint-disable-next-line react-refresh/only-export-components
+export function useApp(): AppContextType {
   const context = useContext(AppContext)
   if (!context) {
     throw new Error('useApp must be used within AppProvider')

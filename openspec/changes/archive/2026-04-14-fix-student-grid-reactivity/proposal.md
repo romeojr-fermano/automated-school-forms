@@ -12,9 +12,11 @@ Currently, the Student Answer input grid in the Test Checker page does not react
 ## Capabilities
 
 ### New Capabilities
+
 - `reactive-student-grid`: Ensures the student answer input area dynamically and correctly reflects the committed test structure.
 
 ### Modified Capabilities
+
 - `live-answer-grid`: Updates the relationship between the draft answer key grid and the student answer grid.
 
 ## Impact

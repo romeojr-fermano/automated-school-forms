@@ -5,6 +5,7 @@ The current Test Checker implementation in `TestCheckerPage.tsx` uses a single `
 ## Goals / Non-Goals
 
 **Goals:**
+
 - Provide instant visual feedback for the item grid as the user types.
 - Ensure answer data is preserved during grid resizing.
 - Repurpose the "Build" button as a manual "Save/Commit" action.
@@ -12,6 +13,7 @@ The current Test Checker implementation in `TestCheckerPage.tsx` uses a single `
 - Maintain focus on the "No. of Items" input during live updates.
 
 **Non-Goals:**
+
 - Removing the "Build" button entirely (it will remain as the "Save" trigger).
 - Implementing complex multi-test management in this change.
 

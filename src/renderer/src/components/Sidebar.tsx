@@ -83,7 +83,7 @@ function Sidebar(): React.JSX.Element {
     }
   ]
 
-  const isActive = (item: { id: string; pageId: string }) => {
+  const isActive = (item: { id: string; pageId: string }): boolean => {
     if (
       currentPage === item.pageId &&
       (item.pageId === 'setup' || item.pageId === 'grades' || item.pageId === 'masterlist')
@@ -93,7 +93,7 @@ function Sidebar(): React.JSX.Element {
     return currentPage === item.pageId
   }
 
-  const handleClick = (item: { id: string; pageId: string }) => {
+  const handleClick = (item: { id: string; pageId: string }): void => {
     setCurrentPage(item.pageId)
     if (item.pageId === 'setup' || item.pageId === 'grades' || item.pageId === 'masterlist') {
       setActiveSection(item.id)
@@ -105,7 +105,7 @@ function Sidebar(): React.JSX.Element {
       {sections.map((section) => (
         <div className="sidebar-section" key={section.category}>
           <div className="sidebar-label">{section.category}</div>
-          {section.items.map((item: any) => (
+          {section.items.map((item) => (
             <div
               key={item.id}
               className={`sidebar-item ${isActive(item) ? 'active' : ''}`}

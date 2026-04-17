@@ -94,7 +94,7 @@ export interface TestCheckerState {
 ## Risks / Trade-offs
 
 | Risk                                         | Mitigation                                             |
-|----------------------------------------------|--------------------------------------------------------|
+| -------------------------------------------- | ------------------------------------------------------ |
 | Large CSV files may cause performance issues | Limit input to reasonable sizes, process synchronously |
 | User enters invalid answer formats           | Validate on submit, show clear error messages          |
 | State becomes too large for localStorage     | Implement cleanup/reset functionality                  |

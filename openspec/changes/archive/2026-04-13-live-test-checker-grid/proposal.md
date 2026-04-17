@@ -12,9 +12,11 @@ The current Test Checker requires a manual "Build" button click to update the an
 ## Capabilities
 
 ### New Capabilities
+
 - `live-answer-grid`: Reactive item grid with persistent drafting and manual commit.
 
 ### Modified Capabilities
+
 - `test-checker`: Updating the requirements for how the answer key is managed and how students are graded.
 
 ## Impact

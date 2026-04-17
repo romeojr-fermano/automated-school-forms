@@ -5,6 +5,7 @@ The "Live Build" system in `TestCheckerPage.tsx` instantly updates the number of
 ## Goals / Non-Goals
 
 **Goals:**
+
 - Implement a minimum of 5 items for the live grid display.
 - Ensure visual consistency between the draft grid and the finalized answer key.
 

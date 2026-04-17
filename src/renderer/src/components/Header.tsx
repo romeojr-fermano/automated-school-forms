@@ -4,7 +4,7 @@ import React from 'react'
 function Header(): React.JSX.Element {
   const { school, section, adviser, principal, subjects, students, grades, attendance } = useApp()
 
-  const handleExport = () => {
+  const handleExport = (): void => {
     const data = {
       school,
       section,

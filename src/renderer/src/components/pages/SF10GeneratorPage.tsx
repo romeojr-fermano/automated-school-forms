@@ -20,7 +20,7 @@ function SF10GeneratorPage(): React.JSX.Element {
       <div className="section-header">
         <div className="section-title">
           <h2>School Form 10 (SF10)</h2>
-          <p>Learner's Permanent Academic Record — Permanent record of learner</p>
+          <p>Learner&apos;s Permanent Academic Record — Permanent record of learner</p>
         </div>
         <div style={{ display: 'flex', gap: '8px' }}>
           <FormSelect
@@ -44,7 +44,7 @@ function SF10GeneratorPage(): React.JSX.Element {
               <div className="agency">Republic of the Philippines · Department of Education</div>
               <div className="school-name">{school.name || 'School Name'}</div>
               <div className="form-name">
-                SCHOOL FORM 10 (SF10) – Learner's Permanent Academic Record
+                SCHOOL FORM 10 (SF10) – Learner&apos;s Permanent Academic Record
               </div>
             </div>
             <div className="form-body">
