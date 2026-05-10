@@ -1,8 +1,7 @@
 import React from 'react'
 import {
   TestCheckerProvider,
-  AnswerKeySection,
-  SettingsSection,
+  TestConfigurationSection,
   StudentEntrySection,
   ResultsSummary,
   ResultsTable,
@@ -28,11 +27,11 @@ function TestCheckerPage(): React.JSX.Element {
             overflow: 'hidden'
           }}
         >
-          {/* LEFT: Setup Column */}
+          {/* LEFT: Configuration Column */}
           <div
             style={{
-              width: '450px',
-              minWidth: '450px',
+              width: '500px',
+              minWidth: '500px',
               display: 'flex',
               flexDirection: 'column',
               gap: '12px',
@@ -40,8 +39,7 @@ function TestCheckerPage(): React.JSX.Element {
               paddingRight: '4px'
             }}
           >
-            <AnswerKeySection />
-            <SettingsSection />
+            <TestConfigurationSection />
             <StudentEntrySection />
           </div>
 

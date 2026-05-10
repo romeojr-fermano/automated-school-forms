@@ -1,6 +1,5 @@
 export * from './TestCheckerContext'
-export * from './AnswerKeySection'
-export * from './SettingsSection'
+export * from './TestConfigurationSection'
 export * from './StudentEntrySection'
 export * from './ResultsSummary'
 export * from './ResultsTable'

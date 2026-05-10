@@ -53,9 +53,24 @@ Department of Education (DepEd) school forms for Senior High School (SHS).
 - **Persistence:** Currently uses `localStorage`. Future plans include migrating to IPC-based file storage in the main
   process.
 
+## Specialized Skills
+
+This project leverages specialized agent skills for high-quality code generation and audits. Use the `activate_skill`
+tool to load these instructions when working on relevant tasks:
+
+- **accessibility:** Audit and improve web accessibility following WCAG 2.2 guidelines.
+- **composition-patterns:** Scalable React composition patterns (compound components, lifting state).
+- **frontend-design:** Create distinctive, production-grade frontend interfaces with high design quality.
+- **nodejs-backend-patterns:** Production-ready Node.js backend patterns (Express/Fastify, middleware, DI).
+- **nodejs-best-practices:** Core Node.js development principles and architecture decisions.
+- **react-best-practices:** Performance optimization guidelines for React and Next.js (Vercel engineering standards).
+- **seo:** Optimize for search engine visibility, metadata, and structured data.
+- **typescript-advanced-types:** Master generics, conditional types, and complex type safety.
+- **vite:** Vite configuration, plugin API, SSR, and Rolldown migrations.
+
 ## Key Files
 
 - `package.json`: Project metadata and scripts.
 - `src/renderer/src/App.tsx`: Main page router.
-- `src/renderer/src/context/AppContext.tsx`: Central state and persistence logic.
+- `src/renderer/src/context/AppContext.tsx`: Central state and persistence log/aic.
 - `shs_sf_generator.html`: Legacy source file for migration reference.

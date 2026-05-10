@@ -1,5 +1,6 @@
 import { useTestChecker } from './TestCheckerContext'
 import Card from '../../ui/Card'
+import React from 'react'
 
 export function ItemAnalysisChart(): React.JSX.Element | null {
   const { state } = useTestChecker()
