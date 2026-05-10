@@ -13,7 +13,8 @@ function NavTabs(): React.JSX.Element {
     { id: 'sf9', label: 'SF9 · Report Card' },
     { id: 'sf10', label: 'SF10 · Learner Profile' },
     { id: 'f137', label: 'Form 137' },
-    { id: 'f138', label: 'Form 138' }
+    { id: 'f138', label: 'Form 138' },
+    { id: 'checker', label: '📝 Test Checker' }
   ]
 
   return (

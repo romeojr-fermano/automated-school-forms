@@ -11,12 +11,13 @@ import SF9GeneratorPage from './components/pages/SF9GeneratorPage'
 import SF10GeneratorPage from './components/pages/SF10GeneratorPage'
 import Form137GeneratorPage from './components/pages/Form137GeneratorPage'
 import Form138GeneratorPage from './components/pages/Form138GeneratorPage'
+import TestCheckerPage from './components/pages/TestCheckerPage'
 import React from 'react'
 
 function App(): React.JSX.Element {
   const { currentPage } = useApp()
 
-  const renderPage = () => {
+  const renderPage = (): React.JSX.Element => {
     switch (currentPage) {
       case 'setup':
         return <SchoolSetupPage />
@@ -36,6 +37,8 @@ function App(): React.JSX.Element {
         return <Form137GeneratorPage />
       case 'f138':
         return <Form138GeneratorPage />
+      case 'checker':
+        return <TestCheckerPage />
       default:
         return <SchoolSetupPage />
     }

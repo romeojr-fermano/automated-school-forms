@@ -64,3 +64,28 @@ export interface MonthlyAttendance {
   totalPresent: number
   totalAbsent: number
 }
+
+export interface TestCheckerAnswer {
+  item: number
+  answer: string
+}
+
+export interface TestCheckerStudent {
+  id: string
+  name: string
+  answers: Record<number, string>
+  score: number
+  pct: number
+  passed: boolean
+  wrongItems: string[]
+}
+
+export interface TestCheckerState {
+  mode: 'manual' | 'csv'
+  answerKey: TestCheckerAnswer[]
+  students: TestCheckerStudent[]
+  testName: string
+  subject: string
+  passingPct: number
+  date: string
+}

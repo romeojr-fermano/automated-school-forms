@@ -6,11 +6,12 @@ interface CardProps {
   titleIcon?: string
   action?: React.ReactNode
   children: React.ReactNode
+  style?: React.CSSProperties
 }
 
-function Card({ id, title, titleIcon, action, children }: CardProps): React.JSX.Element {
+function Card({ id, title, titleIcon, action, children, style }: CardProps): React.JSX.Element {
   return (
-    <div className="card" id={id}>
+    <div className="card" id={id} style={style}>
       {title && (
         <div className="card-header">
           <div className="card-title">

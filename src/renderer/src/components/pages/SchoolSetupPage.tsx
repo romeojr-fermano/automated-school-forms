@@ -28,11 +28,11 @@ function SchoolSetupPage(): React.JSX.Element {
     }
   }, [activeSection])
 
-  const handleSave = () => {
+  const handleSave = (): void => {
     console.log('Saving...')
   }
 
-  const handleAddSubject = () => {
+  const handleAddSubject = (): void => {
     const newSubject = {
       id: Date.now().toString(),
       name: 'New Subject',
@@ -43,7 +43,7 @@ function SchoolSetupPage(): React.JSX.Element {
     setSubjects([...subjects, newSubject])
   }
 
-  const handleRemoveSubject = (id: string) => {
+  const handleRemoveSubject = (id: string): void => {
     setSubjects(subjects.filter((s) => s.id !== id))
   }
 
@@ -51,7 +51,7 @@ function SchoolSetupPage(): React.JSX.Element {
     id: string,
     field: keyof (typeof subjects)[0],
     value: string | number
-  ) => {
+  ): void => {
     setSubjects(subjects.map((s) => (s.id === id ? { ...s, [field]: value } : s)))
   }
 
@@ -293,7 +293,7 @@ function SchoolSetupPage(): React.JSX.Element {
         <div className="info-box">
           <strong>SHS Curriculum Note:</strong> For Grades 11–12, subjects are categorized into
           Core, Applied/Specialized, and Track-specific subjects. Default subjects are pre-loaded
-          based on Grade & Track selection.
+          based on Grade &amp; Track selection.
         </div>
         <table className="data-table">
           <thead>
@@ -313,7 +313,7 @@ function SchoolSetupPage(): React.JSX.Element {
                   colSpan={6}
                   style={{ textAlign: 'center', padding: '24px', color: 'rgba(255,255,255,0.4)' }}
                 >
-                  No subjects added yet. Click "+ Add Subject" to begin.
+                  No subjects added yet. Click &quot;+ Add Subject&quot; to begin.
                 </td>
               </tr>
             ) : (

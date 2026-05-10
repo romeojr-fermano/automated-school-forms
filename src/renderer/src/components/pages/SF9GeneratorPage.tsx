@@ -20,7 +20,7 @@ function SF9GeneratorPage(): React.JSX.Element {
       <div className="section-header">
         <div className="section-title">
           <h2>School Form 9 (SF9)</h2>
-          <p>Learner's Progress Report Card — End-of-Quarter Report</p>
+          <p>Learner&apos;s Progress Report Card — End-of-Quarter Report</p>
         </div>
         <div style={{ display: 'flex', gap: '8px' }}>
           <FormSelect
@@ -41,7 +41,9 @@ function SF9GeneratorPage(): React.JSX.Element {
             <div className="form-header-ph">
               <div className="agency">Republic of the Philippines · Department of Education</div>
               <div className="school-name">{school.name || 'School Name'}</div>
-              <div className="form-name">SCHOOL FORM 9 (SF9) – Learner's Progress Report Card</div>
+              <div className="form-name">
+                SCHOOL FORM 9 (SF9) – Learner&apos;s Progress Report Card
+              </div>
             </div>
             <div className="form-body">
               <div
